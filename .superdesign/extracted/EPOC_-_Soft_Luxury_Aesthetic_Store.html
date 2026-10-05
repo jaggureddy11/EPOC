@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPOC - Soft Luxury Aesthetic Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500&f[]=gambetta@400,500,400i&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DA3C2F',
+              cream: '#F4E7DA',
+              dark: '#2A2825',
+              muted: '#A89E95'
+            }
+          },
+          fontFamily: {
+            sans: ['General Sans', 'sans-serif'],
+            serif: ['Gambetta', 'serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 1.5s ease-out forwards',
+            'slide-up': 'slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .text-balance {
+      text-wrap: balance;
+    }
+    .hover-image-zoom img {
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hover-image-zoom:hover img {
+      transform: scale(1.05);
+    }
+    /* Custom scrollbar for horizontal lists */
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-brand-cream text-brand-dark font-sans antialiased font-light selection:bg-brand-red/20 selection:text-brand-dark overflow-x-hidden">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-red/10">
+    <div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
+      <!-- Desktop Menu (Left) -->
+      <div class="hidden lg:flex items-center gap-10 text-sm tracking-[0.15em] uppercase font-medium">
+        <a href="#" class="hover:text-brand-red transition-colors relative group py-2">
+          Shop
+          <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#" class="hover:text-brand-red transition-colors relative group py-2">
+          Objects
+          <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#" class="hover:text-brand-red transition-colors relative group py-2">
+          Journal
+          <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </div>
+
+      <!-- Logo (Center) -->
+      <a href="#" class="flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+        <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/ae52f364-29ad-4a1c-8745-c4863ce23c5d/1791208709971-1734bdc7/image.png" alt="EPOC Logo" class="h-10 w-auto object-contain">
+      </a>
+
+      <!-- Utilities (Right) -->
+      <div class="flex items-center gap-8">
+        <button class="hover:text-brand-red transition-colors text-sm tracking-[0.1em] uppercase font-medium hidden md:block">
+          Search
+        </button>
+        <button class="hover:text-brand-red transition-colors text-sm tracking-[0.1em] uppercase font-medium flex items-center gap-2">
+          Cart <span class="text-brand-muted text-xs">(0)</span>
+        </button>
+        <button class="lg:hidden hover:text-brand-red transition-colors">
+          <iconify-icon icon="lucide:menu" class="text-2xl"></iconify-icon>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="min-h-[85vh] flex flex-col justify-center px-8 relative">
+      <div class="max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Text Content -->
+        <div class="lg:col-span-5 z-10 animate-slide-up opacity-0" style="animation-delay: 0.2s;">
+          <span class="block text-brand-red font-medium tracking-[0.2em] uppercase text-xs mb-8">
+            Collection 01
+          </span>
+          <h1 class="font-serif text-6xl md:text-8xl leading-[1.1] text-balance mb-8 font-normal">
+            Quiet
+            <br>
+            <span class="italic text-brand-red/90">moments.</span>
+          </h1>
+          <p class="text-lg text-brand-dark/70 font-light max-w-sm leading-relaxed mb-12">
+            Objects designed for pause. Curating spaces that breathe, inspired by Japanese minimalism and modern necessity.
+          </p>
+          <a href="#" class="group inline-flex items-center gap-4 text-sm uppercase tracking-[0.15em] font-medium">
+            Discover Objects
+            <span class="w-12 h-[1px] bg-brand-dark group-hover:w-16 group-hover:bg-brand-red transition-all duration-300"></span>
+          </a>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="lg:col-span-7 relative h-[60vh] lg:h-[75vh] w-full animate-fade-in opacity-0" style="animation-delay: 0.4s;">
+          <div class="absolute inset-0 rounded-[2rem] overflow-hidden hover-image-zoom">
+            <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Minimalist interior space" class="w-full h-full object-cover">
+            <!-- Soft overlay -->
+            <div class="absolute inset-0 bg-brand-cream/5 mix-blend-overlay"></div>
+          </div>
+          <!-- Floating Accent -->
+          <div class="absolute -bottom-6 -left-6 lg:bottom-12 lg:-left-12 bg-brand-cream p-6 rounded-2xl shadow-xl shadow-brand-dark/5 w-48 animate-slide-up opacity-0" style="animation-delay: 0.8s;">
+             <p class="font-serif italic text-xl text-brand-red mb-2">Artisan made</p>
+             <p class="text-xs text-brand-muted uppercase tracking-wider">Crafted in Kyoto, Japan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Narrative Section -->
+    <section class="py-32 px-8 bg-white">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="font-serif text-3xl md:text-5xl leading-tight text-balance text-brand-dark/90">
+          "We believe in the emotional resonance of the objects we surround ourselves with. <span class="text-brand-red italic">Less noise, more intention.</span>"
+        </p>
+      </div>
+    </section>
+
+    <!-- Curated Collection -->
+    <section class="py-32 px-8">
+      <div class="max-w-[1440px] mx-auto">
+        <div class="flex justify-between items-end mb-16">
+          <div>
+            <h2 class="font-serif text-4xl mb-4">Essential Objects</h2>
+            <p class="text-brand-muted text-sm tracking-widest uppercase">Curated selections</p>
+          </div>
+          <a href="#" class="hidden md:flex items-center gap-2 text-sm uppercase tracking-widest font-medium hover:text-brand-red transition-colors">
+            View All <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+          </a>
+        </div>
+
+        <!-- Horizontal scroll on mobile, grid on desktop -->
+        <div class="flex md:grid md:grid-cols-3 gap-8 overflow-x-auto hide-scrollbar pb-8 -mx-8 px-8 md:mx-0 md:px-0 md:pb-0 snap-x">
+          <!-- Product 1 -->
+          <a href="#" class="group block min-w-[300px] md:min-w-0 snap-center">
+            <div class="aspect-[3/4] rounded-3xl overflow-hidden mb-6 bg-white hover-image-zoom relative">
+              <img src="https://images.unsplash.com/photo-1579562768051-40915654cc3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ceramic Vase" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/5 transition-colors duration-500"></div>
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-lg font-medium">Wabi-Sabi Vase</h3>
+                <p class="text-brand-muted text-sm mt-1">Unglazed Ceramic</p>
+              </div>
+              <span class="text-brand-dark font-medium">$125</span>
+            </div>
+          </a>
+
+          <!-- Product 2 -->
+          <a href="#" class="group block min-w-[300px] md:min-w-0 snap-center md:mt-12">
+            <div class="aspect-[3/4] rounded-3xl overflow-hidden mb-6 bg-white hover-image-zoom relative">
+              <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brass Lamp" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/5 transition-colors duration-500"></div>
+              <div class="absolute top-4 left-4 bg-white/80 backdrop-blur text-brand-dark text-[10px] uppercase tracking-widest px-3 py-1 rounded-full">
+                Bestseller
+              </div>
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-lg font-medium">Paper & Brass Lamp</h3>
+                <p class="text-brand-muted text-sm mt-1">Ambient Lighting</p>
+              </div>
+              <span class="text-brand-dark font-medium">$340</span>
+            </div>
+          </a>
+
+          <!-- Product 3 -->
+          <a href="#" class="group block min-w-[300px] md:min-w-0 snap-center">
+            <div class="aspect-[3/4] rounded-3xl overflow-hidden mb-6 bg-white hover-image-zoom relative">
+              <img src="https://images.unsplash.com/photo-1507149833265-60c372daea22?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Linen Chair" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/5 transition-colors duration-500"></div>
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-lg font-medium">Lounge Chair 02</h3>
+                <p class="text-brand-muted text-sm mt-1">Washed Linen</p>
+              </div>
+              <span class="text-brand-dark font-medium">$890</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial Feature -->
+    <section class="py-24 px-8">
+      <div class="max-w-[1440px] mx-auto bg-white rounded-[3rem] overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+          <div class="p-12 md:p-24 flex flex-col justify-center">
+            <span class="text-brand-red text-sm tracking-widest uppercase mb-6 block">Journal</span>
+            <h2 class="font-serif text-4xl md:text-5xl mb-8">The Art of <br>Nothingness.</h2>
+            <p class="text-brand-dark/70 font-light leading-relaxed mb-12 max-w-md">
+              Exploring the space between objects. Why negative space is just as important as the physical items we choose to keep in our homes.
+            </p>
+            <a href="#" class="group inline-flex items-center gap-4 text-sm uppercase tracking-[0.15em] font-medium">
+              Read Story
+              <span class="w-12 h-[1px] bg-brand-dark group-hover:w-16 group-hover:bg-brand-red transition-all duration-300"></span>
+            </a>
+          </div>
+          <div class="relative h-[50vh] lg:h-auto">
+            <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Minimalist Interior" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-red/10 pt-24 pb-12 px-8 mt-12">
+    <div class="max-w-[1440px] mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
+        <div class="md:col-span-2">
+          <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/ae52f364-29ad-4a1c-8745-c4863ce23c5d/1791208709971-1734bdc7/image.png" alt="EPOC Logo" class="h-12 w-auto object-contain mb-8 opacity-80">
+          <p class="text-brand-muted font-light max-w-sm">
+            Curating spaces that breathe. Premium aesthetic objects for the mindful generation.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="text-sm tracking-widest uppercase font-medium mb-8">Explore</h4>
+          <ul class="space-y-4 font-light text-brand-dark/70">
+            <li><a href="#" class="hover:text-brand-red transition-colors">Collections</a></li>
+            <li><a href="#" class="hover:text-brand-red transition-colors">Objects</a></li>
+            <li><a href="#" class="hover:text-brand-red transition-colors">Journal</a></li>
+            <li><a href="#" class="hover:text-brand-red transition-colors">About</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm tracking-widest uppercase font-medium mb-8">Connect</h4>
+          <ul class="space-y-4 font-light text-brand-dark/70">
+            <li><a href="#" class="hover:text-brand-red transition-colors">Instagram</a></li>
+            <li><a href="#" class="hover:text-brand-red transition-colors">Pinterest</a></li>
+            <li><a href="#" class="hover:text-brand-red transition-colors">Newsletter</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-widest uppercase text-brand-muted pt-8 border-t border-brand-red/5">
+        <p>&copy; 2024 EPOC STUDIO. ALL RIGHTS RESERVED.</p>
+        <div class="flex gap-8">
+          <a href="#" class="hover:text-brand-red">Privacy Policy</a>
+          <a href="#" class="hover:text-brand-red">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

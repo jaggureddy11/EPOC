@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPOC | The Art Deco Maximalist Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://api.fontshare.com/v2/css?f[]=boska@500,700,900&f[]=switzer@400,600,700&f[]=tanker@400&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <style>
+    :root {
+      --color-cream: #F5EAE0;
+      --color-red: #DA3831;
+      --color-dark: #1A1A1A;
+      --color-gold: #C5A059;
+    }
+    
+    body {
+      background-color: var(--color-cream);
+      color: var(--color-dark);
+      font-family: 'Switzer', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    .font-serif-display {
+      font-family: 'Boska', serif;
+    }
+    
+    .font-deco-display {
+      font-family: 'Tanker', sans-serif;
+      letter-spacing: 0.05em;
+    }
+    
+    .deco-border {
+      border: 3px solid var(--color-red);
+      box-shadow: 8px 8px 0px 0px var(--color-red);
+      transition: all 0.3s ease;
+    }
+    
+    .deco-border:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 12px 12px 0px 0px var(--color-red);
+    }
+    
+    .deco-border-gold {
+      border: 3px solid var(--color-gold);
+      box-shadow: 6px 6px 0px 0px var(--color-gold);
+    }
+    
+    .bg-grid-pattern {
+      background-image: 
+        linear-gradient(to right, rgba(218, 56, 49, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(218, 56, 49, 0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
+    
+    .marquee-content {
+      display: flex;
+      animation: marquee 20s linear infinite;
+    }
+    
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    .diagonal-section {
+      transform: skewY(-3deg);
+    }
+    
+    .diagonal-content {
+      transform: skewY(3deg);
+    }
+    
+    .text-outline {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--color-red);
+    }
+    
+    .ornate-corner-tl {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 40px;
+      height: 40px;
+      border-top: 4px solid var(--color-red);
+      border-left: 4px solid var(--color-red);
+    }
+    
+    .ornate-corner-br {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 40px;
+      height: 40px;
+      border-bottom: 4px solid var(--color-red);
+      border-right: 4px solid var(--color-red);
+    }
+  </style>
+</head>
+<body class="bg-grid-pattern min-h-screen relative">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full top-0 z-50 bg-[#F5EAE0]/90 backdrop-blur-md border-b-4 border-[#DA3831]">
+    <div class="max-w-[1440px] mx-auto px-6 h-24 flex items-center justify-between">
+      <!-- Left Links -->
+      <div class="hidden lg:flex gap-10 items-center font-deco-display text-xl uppercase tracking-widest text-[#DA3831]">
+        <a href="#" class="relative group overflow-hidden">
+          <span class="inline-block transition-transform duration-300 group-hover:-translate-y-full">Curations</span>
+          <span class="absolute top-full left-0 text-[#C5A059] transition-transform duration-300 group-hover:-translate-y-full">Curations</span>
+        </a>
+        <a href="#" class="relative group overflow-hidden">
+          <span class="inline-block transition-transform duration-300 group-hover:-translate-y-full">Artifacts</span>
+          <span class="absolute top-full left-0 text-[#C5A059] transition-transform duration-300 group-hover:-translate-y-full">Artifacts</span>
+        </a>
+      </div>
+
+      <!-- Logo Center -->
+      <a href="#" class="absolute left-1/2 -translate-x-1/2">
+        <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/ae52f364-29ad-4a1c-8745-c4863ce23c5d/1791208709971-1734bdc7/image.png" alt="EPOC Logo" class="h-14 w-auto object-contain">
+      </a>
+
+      <!-- Right Links & Cart -->
+      <div class="flex items-center gap-8">
+        <div class="hidden lg:flex gap-10 items-center font-deco-display text-xl uppercase tracking-widest text-[#DA3831]">
+          <a href="#" class="relative group overflow-hidden">
+            <span class="inline-block transition-transform duration-300 group-hover:-translate-y-full">Journal</span>
+            <span class="absolute top-full left-0 text-[#C5A059] transition-transform duration-300 group-hover:-translate-y-full">Journal</span>
+          </a>
+        </div>
+        <button class="w-12 h-12 bg-[#DA3831] text-[#F5EAE0] flex items-center justify-center deco-border relative group">
+          <iconify-icon icon="lucide:shopping-cart" class="text-xl group-hover:scale-110 transition-transform"></iconify-icon>
+          <span class="absolute -top-3 -right-3 w-6 h-6 bg-[#C5A059] text-white text-xs font-bold rounded-full flex items-center justify-center border-2 border-[#1A1A1A]">3</span>
+        </button>
+        <button class="lg:hidden text-[#DA3831]">
+          <iconify-icon icon="lucide:menu" class="text-3xl"></iconify-icon>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="pt-24">
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+      <div class="max-w-[1440px] mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
+        
+        <!-- Left Text Content -->
+        <div class="lg:col-span-7 flex flex-col justify-center relative">
+          <div class="absolute -top-10 -left-10 w-40 h-40 border-t-8 border-l-8 border-[#C5A059] opacity-30"></div>
+          
+          <div class="space-y-6 relative z-10">
+            <div class="inline-flex items-center gap-4 bg-[#1A1A1A] text-[#F5EAE0] px-4 py-2 font-deco-display uppercase tracking-widest text-sm deco-border-gold">
+              <iconify-icon icon="ph:star-four-fill" class="text-[#C5A059]"></iconify-icon>
+              <span>The New Epoch of Aesthetics</span>
+              <iconify-icon icon="ph:star-four-fill" class="text-[#C5A059]"></iconify-icon>
+            </div>
+            
+            <h1 class="font-serif-display text-7xl lg:text-[7rem] leading-[0.85] font-black text-[#1A1A1A] uppercase tracking-tighter">
+              Curated <br>
+              <span class="text-[#DA3831] relative">
+                Chaos 
+                <svg class="absolute w-full h-4 -bottom-2 left-0 text-[#C5A059]" viewBox="0 0 100 20" preserveAspectRatio="none">
+                  <path d="M0 10 Q 25 0 50 10 T 100 10" fill="none" stroke="currentColor" stroke-width="4"></path>
+                </svg>
+              </span><br>
+              <span class="text-outline font-deco-display text-8xl lg:text-[8rem]">Refined.</span>
+            </h1>
+            
+            <p class="font-bold text-xl lg:text-2xl max-w-xl text-[#1A1A1A] border-l-4 border-[#DA3831] pl-6 py-2">
+              Unapologetic art deco meets hyper-modern minimalism. Premium objects for the aesthetically obsessed.
+            </p>
+            
+            <div class="pt-8 flex flex-wrap gap-6">
+              <a href="#" class="bg-[#DA3831] text-[#F5EAE0] px-10 py-5 font-deco-display text-2xl uppercase tracking-widest deco-border hover:bg-[#1A1A1A] hover:border-[#1A1A1A]">
+                Shop Collection
+              </a>
+              <a href="#" class="bg-transparent text-[#1A1A1A] border-4 border-[#1A1A1A] px-10 py-5 font-deco-display text-2xl uppercase tracking-widest hover:bg-[#C5A059] hover:border-[#C5A059] hover:text-white transition-colors">
+                View Manifesto
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Image Grid -->
+        <div class="lg:col-span-5 relative hidden lg:block mt-20">
+          <div class="relative w-full aspect-[3/4]">
+            <!-- Decorative Background Block -->
+            <div class="absolute inset-0 bg-[#C5A059] translate-x-6 translate-y-6 deco-border"></div>
+            <div class="absolute inset-0 bg-[#DA3831] translate-x-3 translate-y-3"></div>
+            
+            <!-- Main Hero Image -->
+            <div class="absolute inset-0 bg-black border-4 border-[#1A1A1A] overflow-hidden group">
+              <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Luxurious abstract chair" class="w-full h-full object-cover opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700 ease-in-out">
+              
+              <!-- Ornate Corners -->
+              <div class="ornate-corner-tl"></div>
+              <div class="ornate-corner-br"></div>
+              
+              <!-- Floating Badge -->
+              <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-[#F5EAE0] rounded-full border-4 border-[#DA3831] flex items-center justify-center animate-[spin_10s_linear_infinite]">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                  <path id="textPath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none"></path>
+                  <text class="font-deco-display text-sm fill-[#DA3831] uppercase tracking-widest">
+                    <textPath href="#textPath" startOffset="0%"> • Premium • Gen Z • Aesthetic</textPath>
+                  </text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee Banner -->
+    <div class="bg-[#1A1A1A] border-y-4 border-[#DA3831] py-4 marquee-container">
+      <div class="marquee-content font-deco-display text-4xl text-[#F5EAE0] uppercase tracking-widest">
+        <span class="mx-8">Radical Design</span> <iconify-icon icon="ph:star-four-fill" class="text-[#C5A059]"></iconify-icon>
+        <span class="mx-8">Unapologetic Form</span> <iconify-icon icon="ph:star-four-fill" class="text-[#DA3831]"></iconify-icon>
+        <span class="mx-8">Art Deco Revival</span> <iconify-icon icon="ph:star-four-fill" class="text-[#C5A059]"></iconify-icon>
+        <span class="mx-8">Future Artifacts</span> <iconify-icon icon="ph:star-four-fill" class="text-[#DA3831]"></iconify-icon>
+        <!-- Duplicate for seamless loop -->
+        <span class="mx-8">Radical Design</span> <iconify-icon icon="ph:star-four-fill" class="text-[#C5A059]"></iconify-icon>
+        <span class="mx-8">Unapologetic Form</span> <iconify-icon icon="ph:star-four-fill" class="text-[#DA3831]"></iconify-icon>
+        <span class="mx-8">Art Deco Revival</span> <iconify-icon icon="ph:star-four-fill" class="text-[#C5A059]"></iconify-icon>
+        <span class="mx-8">Future Artifacts</span> <iconify-icon icon="ph:star-four-fill" class="text-[#DA3831]"></iconify-icon>
+      </div>
+    </div>
+
+    <!-- Featured Collection -->
+    <section class="py-32 relative">
+      <div class="max-w-[1440px] mx-auto px-6">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div class="relative">
+            <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-32 bg-[#C5A059]"></div>
+            <h2 class="font-serif-display text-6xl lg:text-7xl font-black text-[#1A1A1A] uppercase leading-none">
+              Curated <br>
+              <span class="text-[#DA3831]">Artifacts</span>
+            </h2>
+          </div>
+          <a href="#" class="font-deco-display text-2xl uppercase text-[#DA3831] border-b-4 border-[#DA3831] pb-1 hover:text-[#1A1A1A] hover:border-[#1A1A1A] transition-colors flex items-center gap-2">
+            View All Gallery <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+          </a>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
+          
+          <!-- Product 1 -->
+          <a href="#" class="group block">
+            <div class="relative aspect-[4/5] bg-white deco-border mb-6 overflow-hidden">
+              <div class="absolute inset-2 border-2 border-[#1A1A1A]/10 z-10 pointer-events-none"></div>
+              <img src="https://images.unsplash.com/photo-1579562768051-40915654cc3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ceramic Vase" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute top-4 left-4 z-20 bg-[#DA3831] text-[#F5EAE0] font-deco-display px-3 py-1 uppercase text-sm border-2 border-[#1A1A1A]">
+                New Arrival
+              </div>
+              <!-- Hover Add to Cart -->
+              <div class="absolute inset-0 bg-[#1A1A1A]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                <button class="bg-[#F5EAE0] text-[#DA3831] font-deco-display text-xl px-8 py-3 uppercase border-4 border-[#DA3831] hover:bg-[#DA3831] hover:text-[#F5EAE0] transition-colors">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-serif-display font-bold text-2xl uppercase">Brutalist Ceramic 01</h3>
+                <p class="font-bold text-[#1A1A1A]/60 mt-1 uppercase text-sm">Matte Black Texture</p>
+              </div>
+              <span class="font-deco-display text-3xl text-[#DA3831]">$140</span>
+            </div>
+          </a>
+
+          <!-- Product 2 (Offset) -->
+          <a href="#" class="group block lg:mt-24">
+            <div class="relative aspect-[4/5] bg-white deco-border mb-6 overflow-hidden">
+              <div class="absolute inset-2 border-2 border-[#1A1A1A]/10 z-10 pointer-events-none"></div>
+              <img src="https://images.unsplash.com/photo-1507149833265-60c372daea22?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Steel Chair" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute inset-0 bg-[#1A1A1A]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                <button class="bg-[#F5EAE0] text-[#DA3831] font-deco-display text-xl px-8 py-3 uppercase border-4 border-[#DA3831] hover:bg-[#DA3831] hover:text-[#F5EAE0] transition-colors">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-serif-display font-bold text-2xl uppercase">Chrome Lounge</h3>
+                <p class="font-bold text-[#1A1A1A]/60 mt-1 uppercase text-sm">Polished Steel</p>
+              </div>
+              <span class="font-deco-display text-3xl text-[#DA3831]">$890</span>
+            </div>
+          </a>
+
+          <!-- Product 3 -->
+          <a href="#" class="group block">
+            <div class="relative aspect-[4/5] bg-white deco-border mb-6 overflow-hidden">
+              <div class="absolute inset-2 border-2 border-[#1A1A1A]/10 z-10 pointer-events-none"></div>
+              <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Abstract Lamp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div class="absolute top-4 left-4 z-20 bg-[#C5A059] text-[#1A1A1A] font-deco-display px-3 py-1 uppercase text-sm border-2 border-[#1A1A1A]">
+                Limited
+              </div>
+              <div class="absolute inset-0 bg-[#1A1A1A]/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                <button class="bg-[#F5EAE0] text-[#DA3831] font-deco-display text-xl px-8 py-3 uppercase border-4 border-[#DA3831] hover:bg-[#DA3831] hover:text-[#F5EAE0] transition-colors">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-serif-display font-bold text-2xl uppercase">Orbital Lamp</h3>
+                <p class="font-bold text-[#1A1A1A]/60 mt-1 uppercase text-sm">Frosted Glass / Brass</p>
+              </div>
+              <span class="font-deco-display text-3xl text-[#DA3831]">$320</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Diagonal Manifesto Section -->
+    <section class="py-32 bg-[#DA3831] text-[#F5EAE0] diagonal-section border-y-8 border-[#1A1A1A] overflow-hidden my-20">
+      <div class="max-w-[1440px] mx-auto px-6 diagonal-content flex flex-col items-center text-center">
+        <iconify-icon icon="ph:diamonds-four-fill" class="text-[#C5A059] text-6xl mb-8"></iconify-icon>
+        <h2 class="font-serif-display text-5xl md:text-7xl font-black uppercase mb-8 max-w-4xl leading-tight">
+          Aesthetics are not <br>
+          a luxury. They are a <br>
+          <span class="text-[#C5A059] italic font-serif-display font-medium">necessity.</span>
+        </h2>
+        <p class="max-w-2xl text-xl font-bold mb-12 opacity-90 uppercase tracking-wide leading-relaxed">
+          Reject the mundane. Embrace the bold. EPOC curates artifacts that demand attention and disrupt the ordinary space.
+        </p>
+        <a href="#" class="bg-[#F5EAE0] text-[#DA3831] px-12 py-5 font-deco-display text-2xl uppercase tracking-widest border-4 border-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#F5EAE0] hover:border-[#F5EAE0] transition-colors shadow-[8px_8px_0px_0px_#1A1A1A]">
+          Join the Epoch
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#1A1A1A] text-[#F5EAE0] pt-24 pb-12 px-6 border-t-8 border-[#DA3831]">
+    <div class="max-w-[1440px] mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20">
+        
+        <!-- Brand Column -->
+        <div class="lg:col-span-5">
+          <img src="https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/ae52f364-29ad-4a1c-8745-c4863ce23c5d/1791208709971-1734bdc7/image.png" alt="EPOC Logo" class="h-20 w-auto object-contain mb-8 filter brightness-0 invert">
+          <p class="max-w-md font-bold text-lg opacity-70 uppercase tracking-wide leading-relaxed">
+            Maximalist curation for the next generation. We don't sell products; we sell cultural artifacts.
+          </p>
+        </div>
+        
+        <!-- Links Columns -->
+        <div class="lg:col-span-3 lg:col-start-7">
+          <h4 class="font-deco-display text-2xl text-[#C5A059] uppercase tracking-widest mb-6">Index</h4>
+          <ul class="space-y-4 font-bold uppercase tracking-wider text-sm">
+            <li><a href="#" class="hover:text-[#DA3831] transition-colors flex items-center gap-2"><iconify-icon icon="lucide:arrow-right" class="text-[#DA3831]"></iconify-icon> Shop All</a></li>
+            <li><a href="#" class="hover:text-[#DA3831] transition-colors flex items-center gap-2"><iconify-icon icon="lucide:arrow-right" class="text-[#DA3831]"></iconify-icon> New Arrivals</a></li>
+            <li><a href="#" class="hover:text-[#DA3831] transition-colors flex items-center gap-2"><iconify-icon icon="lucide:arrow-right" class="text-[#DA3831]"></iconify-icon> The Manifesto</a></li>
+            <li><a href="#" class="hover:text-[#DA3831] transition-colors flex items-center gap-2"><iconify-icon icon="lucide:arrow-right" class="text-[#DA3831]"></iconify-icon> Journal</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3">
+          <h4 class="font-deco-display text-2xl text-[#C5A059] uppercase tracking-widest mb-6">Connect</h4>
+          <ul class="space-y-4 font-bold uppercase tracking-wider text-sm mb-8">
+            <li><a href="#" class="hover:text-[#DA3831] transition-colors flex items-center gap-2"><iconify-icon icon="lucide:arrow-right" class="text-[#DA3831]"></iconify-icon> Contact Us</a></li>
+            <li><a href="#" class="hover:text-[#DA3831] transition-colors flex items-center gap-2"><iconify-icon icon="lucide:arrow-right" class="text-[#DA3831]"></iconify-icon> FAQ / Returns</a></li>
+          </ul>
+          
+          <!-- Socials -->
+          <div class="flex gap-4">
+            <a href="#" class="w-12 h-12 border-2 border-[#DA3831] bg-[#1A1A1A] flex items-center justify-center hover:bg-[#DA3831] transition-colors">
+              <iconify-icon icon="mdi:instagram" class="text-2xl"></iconify-icon>
+            </a>
+            <a href="#" class="w-12 h-12 border-2 border-[#DA3831] bg-[#1A1A1A] flex items-center justify-center hover:bg-[#DA3831] transition-colors">
+              <iconify-icon icon="fa6-brands:tiktok" class="text-2xl"></iconify-icon>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t-2 border-[#333] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="font-deco-display text-xl uppercase tracking-widest text-[#C5A059]">
+          &copy; EPOC 2024. All Rights Reserved.
+        </p>
+        <div class="flex gap-6 font-bold text-xs uppercase tracking-widest opacity-60">
+          <a href="#" class="hover:text-[#DA3831]">Privacy Policy</a>
+          <a href="#" class="hover:text-[#DA3831]">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

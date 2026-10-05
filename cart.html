@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPOC — Shopping Cart</title>
+  <meta name="description" content="Your acquired brutalist artifacts. Review order before secure checkout.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DA3C2F',
+              cream: '#F4E7DA',
+              dark: '#0f0f0f',
+              purple: '#3a0c2e'
+            }
+          },
+          fontFamily: {
+            display: ['Tanker', 'sans-serif'],
+            body: ['Satoshi', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="text-brand-dark font-body antialiased selection:bg-brand-dark selection:text-brand-cream overflow-x-hidden min-h-screen flex flex-col justify-between">
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <nav class="fixed top-0 w-full z-50 bg-[#F4E7DA] border-b-8 border-[#0f0f0f] px-6 py-4 shadow-[0px_8px_0px_0px_#0f0f0f]">
+    <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+      <a href="index.html" class="block violent-hover" title="EPOC Home">
+        <img src="assets/logo.png" alt="EPOC" class="h-12 w-auto border-4 border-brand-dark shadow-[6px_6px_0px_0px_#0f0f0f]">
+      </a>
+
+      <div class="hidden lg:flex gap-12 font-display text-4xl uppercase tracking-widest">
+        <a href="manifesto.html" class="glitch-hover hover:underline decoration-8 underline-offset-8 inline-block">Manifesto</a>
+        <a href="index.html#objects" class="glitch-hover hover:underline decoration-8 underline-offset-8 inline-block">Objects</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="checkout.html" class="px-5 py-3 bg-brand-dark text-brand-cream font-display text-xl uppercase border-4 border-brand-cream violent-hover hidden sm:inline-block">
+          Direct Checkout →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="pt-32 pb-24 relative z-10 flex-1 px-6">
+    <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-purple mix-blend-multiply opacity-50 blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-brand-dark mix-blend-multiply opacity-40 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-[1440px] mx-auto w-full relative z-10 pt-8">
+      
+      <!-- Page Title -->
+      <div class="text-center mb-12 stagger-1">
+        <span class="bg-brand-dark text-brand-cream font-display text-xl px-4 py-1 uppercase tracking-widest">RESERVED INVENTORY</span>
+        <h1 class="font-display text-8xl md:text-9xl uppercase font-black text-brand-cream mt-2 leading-none">
+          <span class="stroke-text-dark">Your</span>
+          <span class="text-brand-cream block md:inline">Cart</span>
+        </h1>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Cart Items List -->
+        <div id="cart-page-items" class="lg:col-span-8 space-y-6 stagger-2">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- Summary & Promo Code Box -->
+        <div class="lg:col-span-4 stagger-3">
+          <div class="bg-brand-dark border-8 border-brand-cream p-8 shadow-brutal-cream text-brand-cream cascading-shadow sticky top-36">
+            <h2 class="font-display text-5xl uppercase mb-6 stroke-text-dark glitch-hover">
+              Manifest Summary
+            </h2>
+
+            <!-- Promo Input -->
+            <div class="mb-8 border-b-4 border-brand-cream/30 pb-6">
+              <label class="font-display text-xl uppercase tracking-wider block mb-2 opacity-80">Access Code (Try: EPOC10 or GENZ)</label>
+              <div class="flex gap-2">
+                <input id="promo-input" type="text" placeholder="CODE" class="brutal-input text-brand-dark uppercase">
+                <button onclick="applyPromoCode()" class="bg-brand-red text-brand-cream font-display text-xl px-5 border-4 border-brand-dark hover:bg-brand-cream hover:text-brand-dark transition-colors violent-hover">
+                  Apply
+                </button>
+              </div>
+              <p id="promo-msg" class="text-xs font-bold mt-2 text-brand-red uppercase tracking-wider"></p>
+            </div>
+
+            <!-- Price Breakdown -->
+            <div class="space-y-4 font-bold uppercase text-xl mb-8">
+              <div class="flex justify-between">
+                <span class="opacity-80">Subtotal</span>
+                <span id="summary-subtotal" class="font-display text-3xl">$0</span>
+              </div>
+              <div id="discount-row" class="flex justify-between text-brand-red hidden">
+                <span>Discount (<span id="discount-code-name"></span>)</span>
+                <span id="summary-discount" class="font-display text-3xl">-$0</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="opacity-80">Freight / Logistics</span>
+                <span id="summary-shipping" class="font-display text-3xl">$0</span>
+              </div>
+              <div class="flex justify-between pt-6 border-t-4 border-brand-cream text-brand-red">
+                <span class="font-display text-4xl text-brand-cream">Total</span>
+                <span id="summary-total" class="font-display text-6xl text-brand-red">$0</span>
+              </div>
+            </div>
+
+            <a id="checkout-btn" href="checkout.html" class="block w-full bg-brand-red text-brand-cream font-display text-4xl uppercase text-center py-6 border-4 border-brand-cream shadow-[8px_8px_0px_0px_#F4E7DA] hover:shadow-none hover:translate-x-2 hover:translate-y-2 transition-all violent-hover">
+              Finalize Order →
+            </a>
+
+            <div class="mt-6 text-center">
+              <a href="index.html#objects" class="font-display text-xl uppercase text-brand-cream/80 hover:text-brand-cream underline decoration-2 underline-offset-4">
+                ← Continue Looting
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-brand-dark text-brand-cream border-t-8 border-brand-cream px-6 py-16 text-center">
+    <div class="max-w-[1440px] mx-auto">
+      <a href="index.html" class="inline-block">
+        <h2 class="font-display text-7xl uppercase stroke-text">EPOC</h2>
+      </a>
+      <p class="font-display text-xl uppercase tracking-[0.4em] mt-4 text-brand-red">End of an era.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    function renderFullCartPage() {
+      const container = document.getElementById('cart-page-items');
+      const cart = getCart();
+      const totals = getCartTotals();
+
+      // Update Summary Values
+      document.getElementById('summary-subtotal').textContent = `$${totals.subtotal}`;
+      document.getElementById('summary-shipping').textContent = totals.shipping === 0 ? 'FREE' : `$${totals.shipping}`;
+      document.getElementById('summary-total').textContent = `$${totals.total}`;
+
+      const discountRow = document.getElementById('discount-row');
+      if (totals.discount > 0) {
+        discountRow.classList.remove('hidden');
+        document.getElementById('summary-discount').textContent = `-$${totals.discount}`;
+        document.getElementById('discount-code-name').textContent = totals.appliedPromo;
+      } else {
+        discountRow.classList.add('hidden');
+      }
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="bg-brand-cream border-8 border-brand-dark p-12 shadow-brutal text-center">
+            <iconify-icon icon="ph:skull-duotone" class="text-8xl text-brand-red mb-4 animate-pulse"></iconify-icon>
+            <h2 class="font-display text-6xl uppercase mb-4">Cart is Void</h2>
+            <p class="text-2xl font-bold uppercase text-brand-dark/70 max-w-md mx-auto mb-8">
+              No physical artifacts currently secured in your transmission buffer.
+            </p>
+            <a href="index.html#objects" class="inline-block bg-brand-dark text-brand-cream font-display text-3xl uppercase px-8 py-5 border-4 border-brand-dark hover:bg-brand-red transition-colors shadow-brutal">
+              Hunt Artifacts Now →
+            </a>
+          </div>
+        `;
+        document.getElementById('checkout-btn').classList.add('pointer-events-none', 'opacity-50');
+        return;
+      }
+
+      document.getElementById('checkout-btn').classList.remove('pointer-events-none', 'opacity-50');
+
+      container.innerHTML = cart.map(item => {
+        const prod = EPOC_PRODUCTS[item.id];
+        if (!prod) return '';
+        return `
+          <div class="bg-brand-cream border-8 border-brand-dark p-6 shadow-brutal flex flex-col md:flex-row gap-6 items-center md:items-start violent-hover relative">
+            <button onclick="handleRemove('${item.id}')" class="absolute top-4 right-4 text-brand-dark hover:text-brand-red transition-colors p-2" title="Purge Artifact">
+              <iconify-icon icon="lucide:trash-2" class="text-3xl"></iconify-icon>
+            </button>
+            <div class="w-full md:w-52 h-52 border-4 border-brand-dark overflow-hidden flex-shrink-0 bg-brand-dark">
+              <img src="${prod.image}" alt="${prod.title}" class="w-full h-full object-cover grayscale contrast-125 breathe-img">
+            </div>
+            <div class="flex-1 flex flex-col justify-between h-full w-full py-1">
+              <div>
+                <span class="text-xs font-bold bg-brand-red text-brand-cream px-2 py-1 uppercase tracking-widest">${prod.category}</span>
+                <h3 class="font-display text-5xl uppercase text-brand-dark mt-2 glitch-hover cursor-crosshair leading-tight">${prod.title}</h3>
+                <p class="text-brand-dark/70 font-bold uppercase text-sm mt-1">TREATMENT: ${item.variant}</p>
+              </div>
+              <div class="flex items-center justify-between mt-8 pt-4 border-t-4 border-brand-dark">
+                <span class="font-display text-5xl text-brand-dark">$${prod.price * item.qty}</span>
+                <div class="flex items-center border-4 border-brand-dark bg-brand-red text-brand-cream font-display text-2xl shadow-[4px_4px_0px_0px_#0f0f0f]">
+                  <button onclick="handleQty('${item.id}', -1)" class="w-12 h-12 flex items-center justify-center hover:bg-brand-dark transition-colors">-</button>
+                  <span class="w-14 text-center">${item.qty}</span>
+                  <button onclick="handleQty('${item.id}', 1)" class="w-12 h-12 flex items-center justify-center hover:bg-brand-dark transition-colors">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function handleQty(id, delta) {
+      updateCartQty(id, delta);
+      renderFullCartPage();
+    }
+
+    function handleRemove(id) {
+      removeFromCart(id);
+      renderFullCartPage();
+    }
+
+    function applyPromoCode() {
+      const code = document.getElementById('promo-input').value.trim();
+      const msg = document.getElementById('promo-msg');
+      if (code.toUpperCase() === 'CHAOS10' || code.toUpperCase() === 'EPOC10' || code.toUpperCase() === 'GENZ' || code.toUpperCase() === 'EPOC') {
+        localStorage.setItem(PROMO_STORAGE_KEY, code.toUpperCase());
+        msg.textContent = `✓ [${code.toUpperCase()}] ACTIVATED`;
+        msg.className = 'text-xs font-bold mt-2 text-green-400 uppercase tracking-wider';
+        playSound('add');
+      } else {
+        localStorage.removeItem(PROMO_STORAGE_KEY);
+        msg.textContent = '✗ INVALID ACCESS TOKEN';
+        msg.className = 'text-xs font-bold mt-2 text-brand-red uppercase tracking-wider';
+        playSound('click');
+      }
+      dispatchCartUpdate();
+      renderFullCartPage();
+    }
+
+    window.addEventListener('epoc:cart-updated', renderFullCartPage);
+    document.addEventListener('DOMContentLoaded', () => {
+      const existingPromo = localStorage.getItem(PROMO_STORAGE_KEY);
+      if (existingPromo) {
+        document.getElementById('promo-input').value = existingPromo;
+        document.getElementById('promo-msg').textContent = `✓ [${existingPromo}] ACTIVATED`;
+      }
+      renderFullCartPage();
+    });
+  </script>
+</body>
+</html>

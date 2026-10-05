@@ -1,0 +1,21 @@
+{
+  "name": "epoc-brutalist-store",
+  "version": "1.0.0",
+  "description": "EPOC — Brutalist Gen-Z E-Commerce Storefront with raw physical aesthetics, cascading shadows, and shared cart engine",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx -y serve . -p 3333",
+    "dev": "python3 -m http.server 3333",
+    "serve": "npx -y serve . -p 3333"
+  },
+  "keywords": [
+    "brutalism",
+    "gen-z",
+    "ecommerce",
+    "superdesign",
+    "luxury-minimalism",
+    "web-audio"
+  ],
+  "author": "EPOC Collective",
+  "license": "MIT"
+}

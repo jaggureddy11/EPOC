@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
+  <link rel="prefetch" href="https://draft-163ff440-ee1b-498d-bd86-d9dd893fe27b.preview.superdesign.dev" as="document">
+  <link rel="prefetch" href="https://draft-5f06b2a8-749d-4459-bda3-9a28ab2e5c08.preview.superdesign.dev" as="document">
+  <link rel="prefetch" href="https://draft-b059dc5e-a176-41fa-9272-191b35e62a36.preview.superdesign.dev" as="document">
+  <link rel="prefetch" href="https://draft-b1a51883-230a-46ef-a789-9ef0eca37c4f.preview.superdesign.dev" as="document">
+  <link rel="prefetch" href="https://draft-4da27ffc-9ebe-49b8-9b06-da3e9f617dc5.preview.superdesign.dev" as="document">
+  <title>EPOC - Brutalist Premium Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&amp;f[]=satoshi@700,900&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DA3C2F',
+              cream: '#F4E7DA',
+              dark: '#0f0f0f',
+              purple: '#3a0c2e'
+            }
+          },
+          fontFamily: {
+            display: ['Tanker', 'sans-serif'],
+            body: ['Satoshi', 'sans-serif'],
+          },
+          boxShadow: {
+            'brutal': '16px 16px 0px 0px #0f0f0f',
+            'brutal-cream': '12px 12px 0px 0px #F4E7DA',
+            'brutal-red': '12px 12px 0px 0px #DA3C2F',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #DA3C2F;
+      background-image: radial-gradient(#F4E7DA 2px, transparent 2px);
+      background-size: 40px 40px;
+    }
+    .stroke-text {
+      -webkit-text-stroke: 2px #F4E7DA;
+      color: transparent;
+    }
+    .stroke-text-dark {
+      -webkit-text-stroke: 2px #0f0f0f;
+      color: transparent;
+    }
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+    .marquee-content {
+      display: inline-flex;
+      animation: marquee 10s linear infinite;
+    }
+    .marquee-content span {
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .marquee-content span:hover {
+      transform: scale(1.3) rotate(3deg);
+      color: #0f0f0f;
+      -webkit-text-stroke: 1px #F4E7DA;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes pulse-breathe {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.75; }
+    }
+    .breathe-img {
+      animation: pulse-breathe 3s ease-in-out infinite;
+    }
+    @keyframes fade-in-up-scale {
+      0% { opacity: 0; transform: translateY(80px) scale(0.9); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .stagger-1 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s both; }
+    .stagger-2 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s both; }
+    .stagger-3 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s both; }
+    .stagger-4 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s both; }
+    
+    .glitch-hover:hover {
+      animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+      text-shadow: 4px 4px #DA3C2F, -4px -4px #0f0f0f;
+      color: #F4E7DA;
+    }
+    @keyframes glitch-skew {
+      0% { transform: skew(0deg); }
+      20% { transform: skew(-15deg); }
+      40% { transform: skew(15deg); }
+      60% { transform: skew(-5deg); }
+      80% { transform: skew(5deg); }
+      100% { transform: skew(0deg); }
+    }
+    
+    .violent-hover {
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .violent-hover:hover {
+      transform: scale(1.08) translate(-6px, -6px) rotate(2deg) !important;
+      box-shadow: 24px 24px 0px 0px #0f0f0f !important;
+      z-index: 20;
+    }
+    
+    .cascading-shadow {
+      box-shadow: 8px 8px 0px 0px #F4E7DA, 16px 16px 0px 0px #0f0f0f, 24px 24px 0px 0px #DA3C2F, 32px 32px 0px 0px #3a0c2e;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .cascading-shadow:hover {
+      transform: scale(1.05) translate(-12px, -12px);
+      box-shadow: 16px 16px 0px 0px #F4E7DA, 32px 32px 0px 0px #0f0f0f, 48px 48px 0px 0px #DA3C2F, 64px 64px 0px 0px #3a0c2e;
+      z-index: 30;
+    }
+    
+    @keyframes dash {
+      from { stroke-dashoffset: 40; }
+      to { stroke-dashoffset: 0; }
+    }
+    .dash-line {
+      stroke-dasharray: 20, 20;
+      animation: dash 1s linear infinite;
+    }
+    
+    /* View Transitions */
+    html { background-color: #DA3C2F; }
+    @view-transition { navigation: auto; }
+    ::view-transition { background-color: #DA3C2F; }
+    ::view-transition-old(main-nav),
+    ::view-transition-new(main-nav),
+    ::view-transition-old(main-footer),
+    ::view-transition-new(main-footer) {
+        animation: none;
+        mix-blend-mode: normal;
+    }
+    ::view-transition-old(main-content) {
+        animation: 0.25s ease-out both fade-out;
+    }
+    ::view-transition-new(main-content) {
+        animation: 0.25s ease-in 0.1s both fade-in;
+    }
+    @keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+        mix-blend-mode: normal;
+    }
+    sd-component[name="NavigationBar"] { view-transition-name: main-nav; display: block; }
+    sd-component[name="BrutalFooter"] { view-transition-name: main-footer; display: block; }
+    main { view-transition-name: main-content; }
+  </style>
+</head>
+<body class="text-brand-dark font-body antialiased selection:bg-brand-dark selection:text-brand-cream overflow-x-hidden">
+
+  <sd-component componentId="b932ec1c-e2f6-4bad-ac2a-0ef62d44c5e1" name="NavigationBar" props='{"manifestoHref": "https://draft-4da27ffc-9ebe-49b8-9b06-da3e9f617dc5.preview.superdesign.dev"}'></sd-component>
+
+  <main class="pt-32 relative" data-sd-id="11">
+    <!-- Animated SVG Connecting Line Background -->
+    <div class="absolute left-1/2 top-0 w-0 h-full z-0 pointer-events-none hidden lg:block overflow-visible">
+      <svg width="200" height="2500" class="absolute top-0 left-1/2 -translate-x-1/2 opacity-20">
+        <path d="M 100 0 L 100 600 L -50 800 L 250 1200 L 100 1500 L 100 2500" stroke="#0f0f0f" stroke-width="16" fill="none" class="dash-line"/>
+      </svg>
+    </div>
+
+    <section class="min-h-screen px-6 py-12 flex flex-col justify-center relative overflow-hidden" data-sd-id="12">
+      <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-purple mix-blend-multiply opacity-50 blur-3xl" data-sd-id="13"></div>
+      <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-brand-dark mix-blend-multiply opacity-40 blur-3xl" data-sd-id="14"></div>
+
+      <div class="max-w-[1440px] mx-auto w-full relative z-10" data-sd-id="15">
+        <h1 class="font-display text-[12vw] leading-[0.8] uppercase font-black text-brand-cream text-center mb-8 mix-blend-difference stagger-1" data-sd-id="16">
+          <span class="block glitch-hover cursor-crosshair" data-sd-id="17">Anti</span>
+          <span class="block stroke-text glitch-hover cursor-crosshair" data-sd-id="18">Aesthetic</span>
+        </h1>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-16" data-sd-id="19">
+          <div class="bg-brand-cream border-8 border-brand-dark p-8 shadow-brutal transform -rotate-2 violent-hover stagger-2" data-sd-id="20">
+            <h2 class="font-display text-5xl uppercase mb-4 glitch-hover" data-sd-id="21">Raw Form</h2>
+            <p class="text-xl font-bold leading-tight uppercase" data-sd-id="22">We reject the clean. We embrace the noise. Objects designed for the bold.</p>
+          </div>
+          <div class="lg:col-span-2 bg-brand-dark border-8 border-brand-cream p-8 shadow-brutal-cream transform rotate-1 violent-hover flex items-center justify-center overflow-hidden relative stagger-3" data-sd-id="23">
+             <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Abstract" class="absolute inset-0 w-full h-full object-cover grayscale contrast-150 mix-blend-luminosity breathe-img" data-sd-id="24">
+             <h2 class="font-display text-7xl uppercase text-brand-cream relative z-10 text-center stroke-text-dark mix-blend-difference glitch-hover cursor-crosshair" data-sd-id="25">Premium<br>Chaos</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-container bg-brand-dark border-y-8 border-brand-cream py-6 stagger-4" data-sd-id="26">
+      <div class="marquee-content font-display text-6xl uppercase text-brand-cream flex gap-16 items-center" data-sd-id="27">
+        <span class="cursor-crosshair" data-sd-id="28">Consume</span>
+        <iconify-icon icon="ph:warning-duotone" class="text-brand-red animate-pulse text-7xl"></iconify-icon>
+        <span class="cursor-crosshair" data-sd-id="29">Destroy</span>
+        <iconify-icon icon="ph:warning-duotone" class="text-brand-red animate-pulse text-7xl"></iconify-icon>
+        <span class="cursor-crosshair" data-sd-id="30">Rebuild</span>
+        <iconify-icon icon="ph:warning-duotone" class="text-brand-red animate-pulse text-7xl"></iconify-icon>
+        <span class="cursor-crosshair" data-sd-id="31">Consume</span>
+        <iconify-icon icon="ph:warning-duotone" class="text-brand-red animate-pulse text-7xl"></iconify-icon>
+        <span class="cursor-crosshair" data-sd-id="32">Destroy</span>
+        <iconify-icon icon="ph:warning-duotone" class="text-brand-red animate-pulse text-7xl"></iconify-icon>
+        <span class="cursor-crosshair" data-sd-id="33">Rebuild</span>
+      </div>
+    </div>
+
+    <section class="py-32 px-6 relative z-10" data-sd-id="34">
+      <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16" data-sd-id="35">
+        <a href="https://draft-163ff440-ee1b-498d-bd86-d9dd893fe27b.preview.superdesign.dev" class="relative group block stagger-2" data-sd-id="36">
+          <div class="absolute inset-0 bg-brand-purple translate-x-4 translate-y-4 border-8 border-brand-dark" data-sd-id="37"></div>
+          <div class="relative bg-brand-cream border-8 border-brand-dark h-[600px] overflow-hidden cascading-shadow" data-sd-id="38">
+            <img src="https://images.unsplash.com/photo-1507149833265-60c372daea22?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Product" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 breathe-img" data-sd-id="39">
+            <div class="absolute bottom-0 left-0 w-full bg-brand-red border-t-8 border-brand-dark p-6 flex justify-between items-end translate-y-full group-hover:translate-y-0 transition-transform duration-300" data-sd-id="40">
+              <h3 class="font-display text-4xl uppercase text-brand-cream glitch-hover" data-sd-id="41">Steel Chair</h3>
+              <span class="font-display text-5xl text-brand-dark" data-sd-id="42">$890</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://draft-163ff440-ee1b-498d-bd86-d9dd893fe27b.preview.superdesign.dev" class="relative group block mt-16 md:mt-32 stagger-3" data-sd-id="43">
+           <div class="absolute inset-0 bg-brand-dark translate-x-4 translate-y-4 border-8 border-brand-cream" data-sd-id="44"></div>
+          <div class="relative bg-brand-red border-8 border-brand-dark h-[600px] overflow-hidden cascading-shadow" data-sd-id="45">
+            <img src="https://images.unsplash.com/photo-1579562768051-40915654cc3c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Product" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 mix-blend-multiply breathe-img" data-sd-id="46">
+            <div class="absolute bottom-0 left-0 w-full bg-brand-cream border-t-8 border-brand-dark p-6 flex justify-between items-end translate-y-full group-hover:translate-y-0 transition-transform duration-300" data-sd-id="47">
+              <h3 class="font-display text-4xl uppercase text-brand-dark glitch-hover" data-sd-id="48">Brutalist Vase</h3>
+              <span class="font-display text-5xl text-brand-red" data-sd-id="49">$140</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <sd-component componentId="35b4f6d9-4c58-4b35-b045-0ff99f4518d3" name="BrutalFooter"></sd-component>
+
+  <script>
+    document.addEventListener('cartClick', () => {
+      window.location.href = 'https://draft-5f06b2a8-749d-4459-bda3-9a28ab2e5c08.preview.superdesign.dev';
+    });
+  </script>
+</body>
+</html>

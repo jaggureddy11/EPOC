@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPOC — Order Secured</title>
+  <meta name="description" content="Transmission complete. Your brutalist artifacts have been locked into the dispatch queue.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DA3C2F',
+              cream: '#F4E7DA',
+              dark: '#0f0f0f',
+              purple: '#3a0c2e'
+            }
+          },
+          fontFamily: {
+            display: ['Tanker', 'sans-serif'],
+            body: ['Satoshi', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="text-brand-dark font-body antialiased selection:bg-brand-dark selection:text-brand-cream overflow-x-hidden min-h-screen">
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <nav class="fixed top-0 w-full z-50 bg-[#F4E7DA] border-b-8 border-[#0f0f0f] px-6 py-4 shadow-[0px_8px_0px_0px_#0f0f0f]">
+    <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+      <a href="index.html" class="block violent-hover" title="EPOC Home">
+        <img src="assets/logo.png" alt="EPOC" class="h-12 w-auto border-4 border-brand-dark shadow-[6px_6px_0px_0px_#0f0f0f]">
+      </a>
+
+      <div class="hidden lg:flex gap-12 font-display text-4xl uppercase tracking-widest">
+        <a href="manifesto.html" class="glitch-hover hover:underline decoration-8 underline-offset-8 inline-block">Manifesto</a>
+        <a href="index.html#objects" class="glitch-hover hover:underline decoration-8 underline-offset-8 inline-block">Objects</a>
+      </div>
+
+      <div>
+        <a href="index.html" class="px-5 py-3 bg-brand-dark text-brand-cream font-display text-xl uppercase border-4 border-brand-cream violent-hover">
+          Return to Hunt →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="pt-32 pb-24 relative min-h-screen px-6">
+    
+    <!-- Background SVG Connecting Line -->
+    <div class="absolute left-1/2 top-0 w-0 h-full z-0 pointer-events-none hidden lg:block overflow-visible">
+      <svg width="200" height="2500" class="absolute top-0 left-1/2 -translate-x-1/2 opacity-20">
+        <path d="M 100 0 L 100 600 L -50 800 L 250 1200 L 100 1500 L 100 2500" stroke="#0f0f0f" stroke-width="16" fill="none" class="dash-line"/>
+      </svg>
+    </div>
+
+    <!-- Background Blurs -->
+    <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-purple mix-blend-multiply opacity-50 blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-brand-dark mix-blend-multiply opacity-40 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-[1440px] mx-auto w-full relative z-10 pt-10">
+      
+      <!-- Confirmation Header -->
+      <div class="text-center mb-16 flex flex-col items-center">
+        <h1 class="font-display text-[10vw] leading-[0.8] uppercase font-black text-brand-cream mb-8 mix-blend-difference stagger-1">
+          <span class="block glitch-hover cursor-crosshair">Order</span>
+          <span class="block stroke-text glitch-hover cursor-crosshair">Secured</span>
+        </h1>
+        
+        <!-- Transmission Badge -->
+        <div class="bg-brand-dark border-8 border-brand-cream p-6 md:p-8 shadow-brutal-cream transform -rotate-2 violent-hover inline-block stagger-2 mb-8">
+          <p class="text-brand-cream font-body font-bold uppercase tracking-widest text-xs md:text-sm mb-2 opacity-80">Transmission ID</p>
+          <h2 id="order-id-display" class="font-display text-5xl md:text-7xl text-brand-red glitch-hover cursor-crosshair">
+            #EP-884X-VOID
+          </h2>
+        </div>
+
+        <div class="stagger-2">
+          <p class="text-lg md:text-xl font-bold font-body text-brand-dark uppercase bg-brand-cream inline-block px-6 py-3 border-4 border-brand-dark shadow-brutal">
+            Details dispatched to <span id="order-email-display" class="text-brand-red glitch-hover cursor-pointer">subject@void.net</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Order Details Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mt-16">
+        
+        <!-- Left: Acquired Artifacts -->
+        <div class="lg:col-span-7 stagger-3">
+          <div class="bg-brand-cream border-8 border-brand-dark p-6 md:p-10 cascading-shadow relative">
+            
+            <div class="flex justify-between items-center border-b-4 border-brand-dark pb-4 mb-8">
+              <h3 class="font-display text-4xl uppercase glitch-hover">Acquired Artifacts</h3>
+              <span id="order-date-display" class="font-display text-xl bg-brand-dark text-brand-cream px-3 py-1 uppercase">TIMESTAMP</span>
+            </div>
+            
+            <!-- Items Container -->
+            <div id="confirmed-items-list" class="space-y-6">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Barcode Display -->
+            <div class="mt-12 pt-8 border-t-8 border-brand-dark flex flex-col items-center">
+              <svg class="w-full max-w-sm h-16 opacity-80" viewBox="0 0 300 60">
+                <g fill="#0f0f0f">
+                  <rect x="0" width="6" height="60"/>
+                  <rect x="10" width="3" height="60"/>
+                  <rect x="18" width="8" height="60"/>
+                  <rect x="30" width="4" height="60"/>
+                  <rect x="38" width="12" height="60"/>
+                  <rect x="54" width="4" height="60"/>
+                  <rect x="62" width="6" height="60"/>
+                  <rect x="74" width="10" height="60"/>
+                  <rect x="90" width="4" height="60"/>
+                  <rect x="100" width="8" height="60"/>
+                  <rect x="114" width="4" height="60"/>
+                  <rect x="122" width="14" height="60"/>
+                  <rect x="140" width="6" height="60"/>
+                  <rect x="150" width="8" height="60"/>
+                  <rect x="162" width="4" height="60"/>
+                  <rect x="170" width="12" height="60"/>
+                  <rect x="186" width="6" height="60"/>
+                  <rect x="196" width="10" height="60"/>
+                  <rect x="210" width="4" height="60"/>
+                  <rect x="220" width="8" height="60"/>
+                  <rect x="234" width="6" height="60"/>
+                  <rect x="244" width="14" height="60"/>
+                  <rect x="262" width="6" height="60"/>
+                  <rect x="272" width="8" height="60"/>
+                  <rect x="286" width="10" height="60"/>
+                </g>
+              </svg>
+              <p class="font-display text-sm uppercase tracking-[0.4em] mt-2 opacity-60">AUTH-STAMP-CERTIFIED-SECURE</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Logistics & Action Status -->
+        <div class="lg:col-span-5 flex flex-col gap-8">
+          
+          <!-- Logistics Card -->
+          <div class="bg-brand-red border-8 border-brand-dark p-8 shadow-brutal text-brand-cream transform rotate-1 violent-hover stagger-4 relative overflow-hidden">
+            <iconify-icon icon="ph:package-duotone" class="absolute -right-10 -bottom-10 text-9xl opacity-20"></iconify-icon>
+            <h3 class="font-display text-4xl uppercase mb-6 stroke-text-dark glitch-hover">Logistics Buffer</h3>
+            
+            <div class="space-y-6 relative z-10 text-brand-cream">
+              <div>
+                <p class="font-bold uppercase text-xs opacity-80 mb-1">Status</p>
+                <p class="font-display text-3xl uppercase tracking-wider animate-pulse text-brand-cream">Preparing to Manifest</p>
+              </div>
+              <div>
+                <p class="font-bold uppercase text-xs opacity-80 mb-1">Carrier</p>
+                <p class="font-display text-2xl uppercase">Heavy Transport Unit 09 // Void Ground</p>
+              </div>
+              <div>
+                <p class="font-bold uppercase text-xs opacity-80 mb-1">Origin Facility</p>
+                <p class="font-display text-2xl uppercase">Berlin Concrete Depot, Sector 4</p>
+              </div>
+              <div class="pt-4 border-t-2 border-brand-cream/30 flex justify-between items-center">
+                <span class="font-display text-2xl uppercase">Settlement Total</span>
+                <span id="order-total-display" class="font-display text-4xl text-brand-dark bg-brand-cream px-3 py-1">$1,170</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="bg-brand-dark border-8 border-brand-cream p-8 shadow-brutal-cream text-brand-cream space-y-4">
+            <button onclick="window.print()" class="w-full bg-brand-cream text-brand-dark font-display text-3xl uppercase py-5 border-4 border-brand-dark shadow-brutal hover:bg-brand-red hover:text-brand-cream transition-all violent-hover">
+              Print Transmission 📄
+            </button>
+            <a href="index.html#objects" class="block text-center w-full bg-transparent text-brand-cream font-display text-2xl uppercase py-4 border-4 border-brand-cream hover:bg-brand-cream hover:text-brand-dark transition-colors">
+              Hunt More Artifacts →
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-brand-dark text-brand-cream border-t-8 border-brand-cream px-6 py-12 text-center">
+    <div class="max-w-[1440px] mx-auto font-display text-xl uppercase tracking-widest text-brand-cream/60">
+      EPOC RAW FORMS CONFIRMATION DISPATCH TERMINAL
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    function renderConfirmationPage() {
+      const raw = sessionStorage.getItem('epoc_last_order');
+      let order = null;
+      if (raw) {
+        try { order = JSON.parse(raw); } catch (e) {}
+      }
+
+      const orderId = order?.orderId || '#EP-884X-VOID';
+      const email = order?.email || 'subject@void.net';
+      const date = order?.date || new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      const total = order?.totals ? `$${order.totals.total}` : '$1,170';
+
+      document.getElementById('order-id-display').textContent = orderId;
+      document.getElementById('order-email-display').textContent = email;
+      document.getElementById('order-date-display').textContent = date;
+      document.getElementById('order-total-display').textContent = total;
+
+      const container = document.getElementById('confirmed-items-list');
+      const items = (order && order.items && order.items.length > 0) ? order.items : [
+        { id: 'steel-chair', qty: 1, variant: 'Raw Industrial', details: EPOC_PRODUCTS['steel-chair'] },
+        { id: 'brutalist-vase', qty: 2, variant: 'Concrete Ash', details: EPOC_PRODUCTS['brutalist-vase'] }
+      ];
+
+      container.innerHTML = items.map(item => {
+        const prod = item.details || EPOC_PRODUCTS[item.id];
+        if (!prod) return '';
+        return `
+          <div class="flex flex-col sm:flex-row gap-6 p-4 border-4 border-brand-dark bg-brand-cream violent-hover">
+            <div class="w-full sm:w-32 h-32 border-4 border-brand-dark overflow-hidden flex-shrink-0 bg-brand-dark">
+              <img src="${prod.image}" alt="${prod.title}" class="w-full h-full object-cover grayscale contrast-125">
+            </div>
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <h4 class="font-display text-3xl uppercase leading-tight">${prod.title}</h4>
+                <p class="font-bold uppercase text-xs opacity-70 mt-1">VARIANT: ${item.variant || 'Standard'}</p>
+                <p class="font-bold uppercase text-xs mt-1 text-brand-red">QTY: ${String(item.qty).padStart(2, '0')}</p>
+              </div>
+              <div class="font-display text-4xl text-right sm:text-left mt-2">
+                $${prod.price * item.qty}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', renderConfirmationPage);
+  </script>
+</body>
+</html>

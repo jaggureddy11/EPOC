@@ -1,0 +1,10 @@
+<!-- Component ID: 35b4f6d9-4c58-4b35-b045-0ff99f4518d3 -->
+<!-- BrutalFooter (Props: logoHref, showTagline) -->
+<footer class="bg-[#0f0f0f] text-[#F4E7DA] border-t-8 border-[#F4E7DA] px-6 py-24 relative z-10">
+  <div class="max-w-[1440px] mx-auto text-center">
+    <a :href="logoHref || 'index.html'" class="inline-block group transition-transform duration-300 hover:scale-105 hover:-rotate-1">
+      <h2 class="font-['Tanker',sans-serif] text-[15vw] leading-none uppercase transition-colors duration-300 group-hover:text-[#F4E7DA]" style="-webkit-text-stroke: 2px #F4E7DA; color: transparent;">EPOC</h2>
+    </a>
+    <p v-if="showTagline !== false" class="font-['Tanker',sans-serif] text-3xl uppercase tracking-[0.5em] mt-8 text-[#DA3C2F] transition-all duration-300 hover:skew-x-1">End of an era.</p>
+  </div>
+</footer>

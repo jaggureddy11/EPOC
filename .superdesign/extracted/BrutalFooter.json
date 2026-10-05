@@ -1,0 +1,32 @@
+{
+  "params": {
+    "name": "BrutalFooter",
+    "rawHtml": "<footer class=\"bg-brand-dark text-brand-cream border-t-8 border-brand-cream px-6 py-24 relative z-10\" data-sd-id=\"50\">\n    <div class=\"max-w-[1440px] mx-auto text-center stagger-2\" data-sd-id=\"51\">\n      <h2 class=\"font-display text-[15vw] leading-none uppercase stroke-text glitch-hover transition-colors cursor-pointer inline-block\" data-sd-id=\"52\">EPOC</h2>\n      <p class=\"font-display text-3xl uppercase tracking-[0.5em] mt-8 text-brand-red glitch-hover\" data-sd-id=\"53\">End of an era.</p>\n    </div>\n  </footer>",
+    "description": "Brutalist footer with EPOC branding and tagline",
+    "draftId": "f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e"
+  },
+  "result": {
+    "success": true,
+    "component": {
+      "id": "35b4f6d9-4c58-4b35-b045-0ff99f4518d3",
+      "name": "BrutalFooter",
+      "htmlContent": "<footer class=\"bg-[#0f0f0f] text-[#F4E7DA] border-t-8 border-[#F4E7DA] px-6 py-24 relative z-10\"><div class=\"max-w-[1440px] mx-auto text-center\"><a :href=\"logoHref\" class=\"inline-block group transition-transform duration-300 hover:scale-105 hover:-rotate-1\"><h2 class=\"font-['Tanker',sans-serif] text-[15vw] leading-none uppercase transition-colors duration-300 group-hover:text-[#F4E7DA]\" style=\"-webkit-text-stroke: 2px #F4E7DA; color: transparent;\">EPOC</h2></a><p v-if=\"showTagline\" class=\"font-['Tanker',sans-serif] text-3xl uppercase tracking-[0.5em] mt-8 text-[#DA3C2F] transition-all duration-300 hover:skew-x-1\">End of an era.</p></div></footer>",
+      "props": [
+        {
+          "name": "logoHref",
+          "type": "string",
+          "defaultValue": "#",
+          "description": "The navigation destination for the main brand logo"
+        },
+        {
+          "name": "showTagline",
+          "type": "boolean",
+          "defaultValue": true,
+          "description": "Controls visibility of the decorative tagline below the logo"
+        }
+      ],
+      "version": 1
+    },
+    "message": "Successfully created component \"BrutalFooter\" with 2 props"
+  }
+}

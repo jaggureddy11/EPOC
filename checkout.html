@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPOC — Checkout</title>
+  <meta name="description" content="Finalize your transmission. Secure brutalist order protocol.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DA3C2F',
+              cream: '#F4E7DA',
+              dark: '#0f0f0f',
+              purple: '#3a0c2e'
+            }
+          },
+          fontFamily: {
+            display: ['Tanker', 'sans-serif'],
+            body: ['Satoshi', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="text-brand-dark font-body antialiased selection:bg-brand-dark selection:text-brand-cream overflow-x-hidden min-h-screen">
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <nav class="fixed top-0 w-full z-50 bg-[#F4E7DA] border-b-8 border-[#0f0f0f] px-6 py-4 shadow-[0px_8px_0px_0px_#0f0f0f]">
+    <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+      <a href="index.html" class="block violent-hover" title="EPOC Home">
+        <img src="assets/logo.png" alt="EPOC" class="h-12 w-auto border-4 border-brand-dark shadow-[6px_6px_0px_0px_#0f0f0f]">
+      </a>
+
+      <div class="font-display text-3xl uppercase tracking-widest text-brand-dark flex items-center gap-3">
+        <iconify-icon icon="ph:lock-key-bold" class="text-brand-red"></iconify-icon>
+        <span>SECURE GATEWAY</span>
+      </div>
+
+      <div>
+        <a href="cart.html" class="text-brand-dark hover:text-brand-red font-display text-2xl uppercase underline decoration-4 underline-offset-4">
+          ← Cart
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== MAIN CHECKOUT ==================== -->
+  <main class="pt-32 pb-24 relative min-h-screen px-6">
+    <div class="max-w-[1440px] mx-auto">
+      
+      <!-- Title -->
+      <div class="mb-12 stagger-1">
+        <span class="bg-brand-dark text-brand-cream font-display text-xl px-4 py-1 uppercase tracking-widest">TRANSMISSION CLEARANCE</span>
+        <h1 class="font-display text-8xl md:text-[8vw] leading-[0.8] uppercase font-black text-brand-dark stroke-text-dark glitch-hover cursor-crosshair mt-2">
+          Finalize
+        </h1>
+      </div>
+
+      <form id="checkout-form" onsubmit="handlePlaceOrder(event)" class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        
+        <!-- Left: Form Input Cards -->
+        <div class="lg:col-span-8 space-y-10">
+          
+          <!-- 1. Contact Information -->
+          <section class="bg-brand-cream border-8 border-brand-dark p-8 shadow-brutal transform -rotate-1 stagger-2">
+            <div class="flex items-center gap-4 mb-8 border-b-4 border-brand-dark pb-4">
+              <iconify-icon icon="ph:user-bold" class="text-4xl text-brand-red"></iconify-icon>
+              <h2 class="font-display text-4xl uppercase glitch-hover">1. Contact Identity</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="font-display text-xl uppercase tracking-wider block">Email Address *</label>
+                <input type="email" required class="brutal-input" placeholder="subject@void.net" id="email-input" value="subject@void.net">
+              </div>
+              <div class="space-y-2">
+                <label class="font-display text-xl uppercase tracking-wider block">Phone Number *</label>
+                <input type="tel" required class="brutal-input" placeholder="+1 (555) 019-2831" id="phone-input" value="+1 (555) 019-2831">
+              </div>
+            </div>
+          </section>
+
+          <!-- 2. Shipping Address / Drop Zone -->
+          <section class="bg-brand-dark text-brand-cream border-8 border-brand-cream p-8 shadow-brutal-cream transform rotate-1 stagger-3 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-red mix-blend-multiply opacity-50 blur-3xl pointer-events-none"></div>
+            
+            <div class="flex items-center gap-4 mb-8 border-b-4 border-brand-cream pb-4 relative z-10">
+              <iconify-icon icon="ph:map-pin-bold" class="text-4xl text-brand-red"></iconify-icon>
+              <h2 class="font-display text-4xl uppercase glitch-hover">2. Drop Zone (Shipping)</h2>
+            </div>
+
+            <div class="space-y-6 relative z-10">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">First Name *</label>
+                  <input type="text" required class="brutal-input" placeholder="KAI" id="first-name-input" value="KAI">
+                </div>
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">Last Name *</label>
+                  <input type="text" required class="brutal-input" placeholder="VEX" id="last-name-input" value="VEX">
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="font-display text-xl uppercase tracking-wider block">Street Address *</label>
+                <input type="text" required class="brutal-input" placeholder="77 BRUTALIST AVENUE, SUITE 4" id="address-input" value="77 BRUTALIST AVENUE, SUITE 4">
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">City *</label>
+                  <input type="text" required class="brutal-input" placeholder="BERLIN" id="city-input" value="BERLIN">
+                </div>
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">State / Region *</label>
+                  <input type="text" required class="brutal-input" placeholder="BERLIN" id="state-input" value="BERLIN">
+                </div>
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">Postal Code *</label>
+                  <input type="text" required class="brutal-input" placeholder="10115" id="zip-input" value="10115">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. Payment Protocol -->
+          <section class="bg-brand-red text-brand-dark border-8 border-brand-dark p-8 shadow-brutal transform -rotate-1 stagger-4">
+            <div class="flex items-center gap-4 mb-8 border-b-4 border-brand-dark pb-4">
+              <iconify-icon icon="ph:credit-card-bold" class="text-4xl text-brand-cream"></iconify-icon>
+              <h2 class="font-display text-4xl uppercase glitch-hover text-brand-cream">3. Payment Protocol</h2>
+            </div>
+            
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <label class="font-display text-xl uppercase tracking-wider block text-brand-cream">Card Number</label>
+                <div class="relative">
+                  <input type="text" class="brutal-input pl-14" placeholder="4242 •••• •••• 4242" value="4242 •••• •••• 4242" id="card-number-input">
+                  <iconify-icon icon="ph:credit-card" class="absolute left-4 top-1/2 -translate-y-1/2 text-3xl text-brand-dark"></iconify-icon>
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block text-brand-cream">Expiry (MM/YY)</label>
+                  <input type="text" class="brutal-input" placeholder="12/28" value="12/28" id="card-expiry-input">
+                </div>
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block text-brand-cream">CVC</label>
+                  <input type="text" class="brutal-input" placeholder="884" value="884" id="card-cvc-input">
+                </div>
+              </div>
+
+              <!-- Fast Express Alternatives -->
+              <div class="pt-4 border-t-4 border-brand-dark">
+                <span class="font-display text-xl uppercase block mb-3 text-brand-cream tracking-wider">Instant Authorization:</span>
+                <div class="grid grid-cols-3 gap-3 font-display text-lg uppercase">
+                  <button type="button" onclick="quickSelectPayment(this, 'Apple Pay')" class="pay-btn p-3 bg-brand-dark text-brand-cream border-2 border-brand-cream hover:bg-brand-cream hover:text-brand-dark transition-colors">
+                    Apple Pay
+                  </button>
+                  <button type="button" onclick="quickSelectPayment(this, 'Crypto')" class="pay-btn p-3 bg-brand-dark text-brand-cream border-2 border-brand-cream hover:bg-brand-cream hover:text-brand-dark transition-colors">
+                    ETH / USDC
+                  </button>
+                  <button type="button" onclick="quickSelectPayment(this, 'Card')" class="pay-btn p-3 bg-brand-cream text-brand-dark border-2 border-brand-dark hover:bg-brand-dark hover:text-brand-cream transition-colors">
+                    Direct Card
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Right: Order Reflection Sticky -->
+        <div class="lg:col-span-4 stagger-3">
+          <div class="bg-brand-cream border-8 border-brand-dark p-8 shadow-brutal sticky top-36 cascading-shadow">
+            <h3 class="font-display text-4xl uppercase mb-6 border-b-4 border-brand-dark pb-4">
+              Order Manifest
+            </h3>
+
+            <!-- Cart Items Summary List -->
+            <div id="checkout-items-list" class="space-y-4 mb-6 max-h-60 overflow-y-auto pr-2">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Financials -->
+            <div class="space-y-3 font-bold uppercase text-lg border-t-4 border-brand-dark pt-4 mb-8">
+              <div class="flex justify-between">
+                <span>Subtotal</span>
+                <span id="co-subtotal" class="font-display text-2xl">$0</span>
+              </div>
+              <div id="co-discount-row" class="flex justify-between text-brand-red hidden">
+                <span>Discount</span>
+                <span id="co-discount" class="font-display text-2xl">-$0</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Logistics</span>
+                <span id="co-shipping" class="font-display text-2xl">$0</span>
+              </div>
+              <div class="flex justify-between pt-4 border-t-4 border-brand-dark text-brand-red">
+                <span class="font-display text-3xl text-brand-dark">Total</span>
+                <span id="co-total" class="font-display text-5xl">$0</span>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full bg-brand-dark text-brand-cream font-display text-4xl uppercase py-6 border-4 border-brand-dark shadow-[6px_6px_0px_0px_#DA3C2F] hover:bg-brand-red hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all violent-hover cursor-crosshair">
+              Authorize ⚡
+            </button>
+
+            <div class="mt-6 flex items-center justify-center gap-2 text-xs font-bold uppercase opacity-60">
+              <iconify-icon icon="ph:shield-check-fill" class="text-xl"></iconify-icon>
+              <span>Encrypted with SHA-256 Protocol</span>
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </main>
+
+  <footer class="bg-brand-dark text-brand-cream border-t-8 border-brand-cream px-6 py-12 text-center">
+    <div class="max-w-[1440px] mx-auto font-display text-xl uppercase tracking-widest text-brand-cream/60">
+      EPOC RAW FORMS SECURED TRANSACTION TERMINAL
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    function renderCheckoutPage() {
+      const container = document.getElementById('checkout-items-list');
+      const cart = getCart();
+      const totals = getCartTotals();
+
+      document.getElementById('co-subtotal').textContent = `$${totals.subtotal}`;
+      document.getElementById('co-shipping').textContent = totals.shipping === 0 ? 'FREE' : `$${totals.shipping}`;
+      document.getElementById('co-total').textContent = `$${totals.total}`;
+
+      if (totals.discount > 0) {
+        document.getElementById('co-discount-row').classList.remove('hidden');
+        document.getElementById('co-discount').textContent = `-$${totals.discount}`;
+      }
+
+      if (cart.length === 0) {
+        container.innerHTML = `<p class="font-display text-2xl uppercase text-brand-red">No artifacts in cart.</p>`;
+        return;
+      }
+
+      container.innerHTML = cart.map(item => {
+        const prod = EPOC_PRODUCTS[item.id];
+        if (!prod) return '';
+        return `
+          <div class="flex justify-between items-center text-sm font-bold uppercase py-2 border-b border-brand-dark/20">
+            <div>
+              <span class="font-display text-xl block leading-tight">${prod.title}</span>
+              <span class="text-xs opacity-60">Qty: ${item.qty} // ${item.variant}</span>
+            </div>
+            <span class="font-display text-2xl text-brand-red">$${prod.price * item.qty}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function quickSelectPayment(btn, type) {
+      document.querySelectorAll('.pay-btn').forEach(b => {
+        b.classList.remove('bg-brand-cream', 'text-brand-dark');
+        b.classList.add('bg-brand-dark', 'text-brand-cream');
+      });
+      btn.classList.remove('bg-brand-dark', 'text-brand-cream');
+      btn.classList.add('bg-brand-cream', 'text-brand-dark');
+      playSound('click');
+      showToast(`PAYMENT METHOD: ${type.toUpperCase()}`);
+    }
+
+    function handlePlaceOrder(e) {
+      e.preventDefault();
+      const cart = getCart();
+      if (cart.length === 0) {
+        showToast('CART IS EMPTY — HUNT ARTIFACTS FIRST');
+        return;
+      }
+
+      const email = document.getElementById('email-input').value;
+      const name = `${document.getElementById('first-name-input').value} ${document.getElementById('last-name-input').value}`;
+      const totals = getCartTotals();
+      const orderId = `#EP-${Math.floor(100 + Math.random() * 900)}X-VOID`;
+
+      const orderData = {
+        orderId,
+        date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+        email,
+        name,
+        items: cart.map(i => ({ ...i, details: EPOC_PRODUCTS[i.id] })),
+        totals
+      };
+
+      sessionStorage.setItem('epoc_last_order', JSON.stringify(orderData));
+      clearCart();
+      playSound('add');
+      window.location.href = 'confirmation.html';
+    }
+
+    document.addEventListener('DOMContentLoaded', renderCheckoutPage);
+  </script>
+</body>
+</html>

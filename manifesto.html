@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPOC — The Manifesto (Anti-Aesthetic)</title>
+  <meta name="description" content="Rejecting the sterile modern aesthetic. We build for the noise and raw permanence.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DA3C2F',
+              cream: '#F4E7DA',
+              dark: '#0f0f0f',
+              purple: '#3a0c2e'
+            }
+          },
+          fontFamily: {
+            display: ['Tanker', 'sans-serif'],
+            body: ['Satoshi', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="text-brand-dark font-body antialiased selection:bg-brand-dark selection:text-brand-cream overflow-x-hidden">
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <nav class="fixed top-0 w-full z-50 bg-[#F4E7DA] border-b-8 border-[#0f0f0f] px-6 py-4 shadow-[0px_8px_0px_0px_#0f0f0f]">
+    <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+      <a href="index.html" class="block violent-hover" title="EPOC Home">
+        <img src="assets/logo.png" alt="EPOC" class="h-12 w-auto border-4 border-brand-dark shadow-[6px_6px_0px_0px_#0f0f0f]">
+      </a>
+
+      <div class="hidden lg:flex gap-12 font-display text-4xl uppercase tracking-widest">
+        <a href="manifesto.html" class="glitch-hover hover:underline decoration-8 underline-offset-8 inline-block underline text-brand-red">Manifesto</a>
+        <a href="index.html#objects" class="glitch-hover hover:underline decoration-8 underline-offset-8 inline-block">Objects</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button class="cart-trigger-btn relative w-16 h-16 bg-[#DA3C2F] border-4 border-[#0f0f0f] shadow-[6px_6px_0px_0px_#0f0f0f] flex items-center justify-center violent-hover">
+          <iconify-icon icon="lucide:shopping-cart" class="text-3xl text-brand-cream"></iconify-icon>
+          <span class="cart-count-badge absolute -top-3 -right-3 w-8 h-8 bg-brand-dark text-brand-cream border-2 border-brand-cream font-display text-lg flex items-center justify-center shadow-[2px_2px_0px_0px_#0f0f0f]">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== MAIN MANIFESTO ==================== -->
+  <main class="pt-32 relative">
+    
+    <!-- Animated SVG Connecting Line -->
+    <div class="absolute left-1/2 top-0 w-0 h-full z-0 pointer-events-none hidden lg:block overflow-visible">
+      <svg width="200" height="3500" class="absolute top-0 left-1/2 -translate-x-1/2 opacity-20">
+        <path d="M 100 0 L 100 800 L -50 1200 L 250 1800 L 100 2200 L 100 3500" stroke="#0f0f0f" stroke-width="16" fill="none" class="dash-line"/>
+      </svg>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-h-[75vh] px-6 py-12 flex flex-col justify-center relative overflow-hidden">
+      <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-purple mix-blend-multiply opacity-50 blur-3xl pointer-events-none"></div>
+      <div class="max-w-[1440px] mx-auto w-full relative z-10 text-center">
+        <h1 class="font-display text-[15vw] leading-[0.8] uppercase font-black text-brand-cream mix-blend-difference stagger-1 mb-6">
+          <span class="block glitch-hover cursor-crosshair">THE</span>
+          <span class="block stroke-text glitch-hover cursor-crosshair">MANIFESTO</span>
+        </h1>
+        <p class="text-2xl md:text-3xl font-black uppercase text-brand-dark bg-brand-cream inline-block px-8 py-4 border-8 border-brand-dark shadow-brutal transform rotate-2 stagger-2">
+          Rejecting the sterile modern aesthetic since 2024.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission Statement -->
+    <section class="py-24 px-6 relative z-10 bg-brand-dark">
+      <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="stagger-2">
+          <h2 class="font-display text-7xl md:text-8xl uppercase text-brand-cream mb-8 glitch-hover leading-none">
+            We Build For<br>
+            <span class="text-brand-red">Raw Force.</span>
+          </h2>
+          <div class="space-y-6 text-xl md:text-2xl text-brand-cream/90 font-bold uppercase leading-relaxed">
+            <p class="border-l-8 border-brand-red pl-6 py-2">
+              We are sick of minimalist beige boxes. We are tired of "clean" corporate design that signifies nothing and disappears into wallpaper.
+            </p>
+            <p class="border-l-8 border-brand-purple pl-6 py-2">
+              EPOC exists to inject raw, violent weight back into the artifacts we live with. Heavy metals, raw concrete slabs, unapologetic contrasts.
+            </p>
+          </div>
+        </div>
+        <div class="relative h-[550px] border-8 border-brand-cream shadow-brutal-cream violent-hover overflow-hidden stagger-3">
+          <img src="assets/velvet-lounge.jpg" alt="Chaotic Design" class="w-full h-full object-cover grayscale contrast-150 mix-blend-luminosity breathe-img">
+          <div class="absolute inset-0 bg-brand-red mix-blend-multiply opacity-50"></div>
+          <div class="absolute bottom-6 left-6 bg-brand-dark text-brand-cream font-display text-2xl px-4 py-2 border-2 border-brand-cream uppercase">
+            ARCHIVE PHOTOMETRIC 04
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values Marquee -->
+    <div class="marquee-container bg-brand-cream border-y-8 border-brand-dark py-8 stagger-4">
+      <div class="marquee-content font-display text-7xl md:text-8xl uppercase text-brand-dark flex gap-16 items-center">
+        <span class="cursor-crosshair stroke-text-dark text-transparent">Zero Compromise</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red animate-pulse text-6xl"></iconify-icon>
+        <span class="cursor-crosshair">Total Impact</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red animate-pulse text-6xl"></iconify-icon>
+        <span class="cursor-crosshair stroke-text-dark text-transparent">Raw Materials</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red animate-pulse text-6xl"></iconify-icon>
+        <span class="cursor-crosshair">Loud Design</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red animate-pulse text-6xl"></iconify-icon>
+      </div>
+    </div>
+
+    <!-- Timeline / Philosophy Pillars -->
+    <section class="py-32 px-6 relative z-10">
+      <div class="max-w-[1440px] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          
+          <div class="bg-brand-cream border-8 border-brand-dark p-8 cascading-shadow transform -rotate-1 stagger-1">
+            <span class="bg-brand-dark text-brand-cream font-display text-lg px-3 py-1 uppercase">PILLAR 01</span>
+            <h3 class="font-display text-6xl uppercase mt-4 mb-6 text-brand-dark">01. Form</h3>
+            <p class="font-black uppercase text-xl border-t-4 border-brand-dark pt-4 leading-relaxed">
+              Function follows feeling. If an object doesn't provoke an immediate visceral reaction, it has no reason to occupy space in our reality.
+            </p>
+          </div>
+          
+          <div class="bg-brand-dark border-8 border-brand-red p-8 cascading-shadow transform rotate-2 mt-8 md:mt-20 stagger-2">
+            <span class="bg-brand-red text-brand-cream font-display text-lg px-3 py-1 uppercase">PILLAR 02</span>
+            <h3 class="font-display text-6xl uppercase mt-4 mb-6 text-brand-red">02. Force</h3>
+            <p class="font-black uppercase text-xl text-brand-cream border-t-4 border-brand-red pt-4 leading-relaxed">
+              Design should hit you like a concrete block. We refuse to whisper. In an endless feed of identical copies, loudness is honesty.
+            </p>
+          </div>
+
+          <div class="bg-brand-red border-8 border-brand-dark p-8 cascading-shadow transform -rotate-2 mt-8 md:mt-40 stagger-3">
+            <span class="bg-brand-dark text-brand-cream font-display text-lg px-3 py-1 uppercase">PILLAR 03</span>
+            <h3 class="font-display text-6xl uppercase mt-4 mb-6 text-brand-cream stroke-text-dark">03. Future</h3>
+            <p class="font-black uppercase text-xl text-brand-cream border-t-4 border-brand-dark pt-4 leading-relaxed">
+              Building physical artifacts that will survive the impending cultural collapse. Heavy, permanent, undeniable.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Big Call to Action -->
+        <div class="mt-32 bg-brand-dark border-8 border-brand-cream p-12 shadow-brutal-cream text-center stagger-4">
+          <h2 class="font-display text-7xl md:text-8xl uppercase text-brand-cream mb-6 glitch-hover">
+            Cease Browsing. Start Owning.
+          </h2>
+          <p class="text-2xl font-bold uppercase text-brand-cream/80 max-w-xl mx-auto mb-10">
+            Check the active archive drop before allocations close permanently.
+          </p>
+          <a href="index.html#objects" class="inline-block bg-brand-red text-brand-cream font-display text-4xl uppercase px-12 py-6 border-4 border-brand-cream shadow-[8px_8px_0px_0px_#F4E7DA] hover:bg-brand-cream hover:text-brand-dark transition-all violent-hover">
+            Explore Artifacts →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-brand-dark text-brand-cream border-t-8 border-brand-cream px-6 py-24 relative z-10 text-center">
+    <div class="max-w-[1440px] mx-auto">
+      <a href="index.html" class="inline-block">
+        <h2 class="font-display text-[15vw] leading-none uppercase stroke-text">EPOC</h2>
+      </a>
+      <p class="font-display text-3xl uppercase tracking-[0.5em] mt-8 text-brand-red">End of an era.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPOC — Product Details</title>
+  <meta name="description" content="Raw concrete, unforgiving angles. The EPOC product artifact details.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DA3C2F',
+              cream: '#F4E7DA',
+              dark: '#0f0f0f',
+              purple: '#3a0c2e'
+            }
+          },
+          fontFamily: {
+            display: ['Tanker', 'sans-serif'],
+            body: ['Satoshi', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="text-brand-dark font-body antialiased selection:bg-brand-dark selection:text-brand-cream overflow-x-hidden">
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <nav class="fixed top-0 w-full z-50 bg-[#F4E7DA] border-b-8 border-[#0f0f0f] px-6 py-4 shadow-[0px_8px_0px_0px_#0f0f0f]">
+    <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+      <a href="index.html" class="block violent-hover" title="EPOC Home">
+        <img src="assets/logo.png" alt="EPOC" class="h-12 w-auto border-4 border-brand-dark shadow-[6px_6px_0px_0px_#0f0f0f]">
+      </a>
+
+      <div class="hidden lg:flex gap-12 font-display text-4xl uppercase tracking-widest">
+        <a href="manifesto.html" class="glitch-hover hover:underline decoration-8 underline-offset-8 inline-block">Manifesto</a>
+        <a href="index.html#objects" class="glitch-hover hover:underline decoration-8 underline-offset-8 inline-block underline">Objects</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button class="cart-trigger-btn relative w-16 h-16 bg-[#DA3C2F] border-4 border-[#0f0f0f] shadow-[6px_6px_0px_0px_#0f0f0f] flex items-center justify-center violent-hover">
+          <iconify-icon icon="lucide:shopping-cart" class="text-3xl text-brand-cream"></iconify-icon>
+          <span class="cart-count-badge absolute -top-3 -right-3 w-8 h-8 bg-brand-dark text-brand-cream border-2 border-brand-cream font-display text-lg flex items-center justify-center shadow-[2px_2px_0px_0px_#0f0f0f]">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="pt-32 relative">
+    
+    <!-- Background SVG Line -->
+    <div class="absolute left-1/2 top-0 w-0 h-full z-0 pointer-events-none hidden lg:block overflow-visible">
+      <svg width="200" height="2500" class="absolute top-0 left-1/2 -translate-x-1/2 opacity-20">
+        <path d="M 100 0 L 100 600 L -50 800 L 250 1200 L 100 1500 L 100 2500" stroke="#0f0f0f" stroke-width="16" fill="none" class="dash-line"/>
+      </svg>
+    </div>
+
+    <div class="max-w-[1440px] mx-auto px-6 py-12 relative z-10">
+      
+      <!-- Breadcrumb -->
+      <nav class="mb-8 font-display text-2xl uppercase tracking-widest stagger-1 flex items-center gap-2">
+        <a href="index.html" class="hover:text-brand-cream transition-colors">Home</a>
+        <span>/</span>
+        <a href="index.html#objects" class="hover:text-brand-cream transition-colors">Objects</a>
+        <span>/</span>
+        <span id="breadcrumb-title" class="text-brand-cream bg-brand-dark px-3 py-1">Brutalist Vase</span>
+      </nav>
+
+      <!-- Main Product Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        
+        <!-- Left Column: Gallery -->
+        <div class="space-y-8 stagger-2">
+          <div class="bg-brand-cream border-8 border-brand-dark h-[580px] overflow-hidden cascading-shadow relative group">
+            <img id="main-product-img" src="assets/brutalist-vase.jpg" alt="Product" class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500 breathe-img mix-blend-multiply">
+            <div class="absolute top-4 left-4 bg-brand-dark text-brand-cream font-display text-xl px-4 py-1 border-2 border-brand-cream uppercase">
+              SEAL: <span id="product-serial">#EP-902-RAW</span>
+            </div>
+          </div>
+
+          <!-- Thumbnails -->
+          <div class="grid grid-cols-4 gap-4">
+            <div onclick="switchImage(this)" class="thumb-card bg-brand-cream border-4 border-brand-dark aspect-square overflow-hidden cursor-pointer violent-hover ring-4 ring-brand-red">
+              <img id="thumb-1" src="assets/brutalist-vase.jpg" alt="Angle 1" class="w-full h-full object-cover grayscale">
+            </div>
+            <div onclick="switchImage(this)" class="thumb-card bg-brand-cream border-4 border-brand-dark aspect-square overflow-hidden cursor-pointer violent-hover">
+              <img id="thumb-2" src="assets/steel-chair.jpg" alt="Angle 2" class="w-full h-full object-cover grayscale">
+            </div>
+            <div onclick="switchImage(this)" class="thumb-card bg-brand-cream border-4 border-brand-dark aspect-square overflow-hidden cursor-pointer violent-hover">
+              <img id="thumb-3" src="assets/abstract-light.jpg" alt="Angle 3" class="w-full h-full object-cover grayscale">
+            </div>
+            <div onclick="switchImage(this)" class="thumb-card bg-brand-cream border-4 border-brand-dark aspect-square overflow-hidden cursor-pointer violent-hover">
+              <img id="thumb-4" src="assets/velvet-lounge.jpg" alt="Angle 4" class="w-full h-full object-cover grayscale">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Specs & Buy Form -->
+        <div class="bg-brand-cream border-8 border-brand-dark p-8 md:p-12 shadow-brutal flex flex-col justify-between stagger-3">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span id="product-category" class="font-display text-xl uppercase tracking-widest text-brand-red">Raw Form Collection</span>
+              <span class="bg-brand-dark text-brand-cream font-display text-lg px-3 py-1 uppercase">IN STOCK (4 REMAINING)</span>
+            </div>
+
+            <h1 id="product-title" class="font-display text-7xl md:text-8xl uppercase leading-none mb-6 glitch-hover">
+              Brutalist Vase
+            </h1>
+
+            <p id="product-desc" class="text-2xl font-bold leading-relaxed uppercase mb-10 text-brand-dark/90">
+              Raw concrete. Unforgiving angles. A statement piece that demands attention. Reject the smooth, embrace the brutal.
+            </p>
+
+            <!-- Specs Grid -->
+            <div class="border-y-4 border-brand-dark py-6 mb-8">
+              <h3 class="font-display text-2xl uppercase tracking-widest mb-4 text-brand-dark/60">MATERIAL SPECIFICATIONS</h3>
+              <div id="specs-container" class="grid grid-cols-2 gap-y-4 gap-x-8 font-display text-2xl uppercase tracking-wider">
+                <div>
+                  <span class="block text-brand-dark/50 text-sm">Material</span>
+                  <span id="spec-mat">Raw Concrete</span>
+                </div>
+                <div>
+                  <span class="block text-brand-dark/50 text-sm">Weight</span>
+                  <span id="spec-wt">12 kg</span>
+                </div>
+                <div>
+                  <span class="block text-brand-dark/50 text-sm">Dimensions</span>
+                  <span id="spec-dim">40 x 40 x 60 cm</span>
+                </div>
+                <div>
+                  <span class="block text-brand-dark/50 text-sm">Origin</span>
+                  <span id="spec-orig">Berlin</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Variant Selector -->
+            <div class="mb-8">
+              <label class="font-display text-2xl uppercase tracking-wider block mb-3">Finishing Treatment</label>
+              <div class="grid grid-cols-3 gap-3 font-display text-xl uppercase">
+                <button type="button" onclick="selectVariant(this, 'Concrete Ash')" class="variant-btn border-4 border-brand-dark p-3 bg-brand-dark text-brand-cream text-center violent-hover">
+                  Concrete Ash
+                </button>
+                <button type="button" onclick="selectVariant(this, 'Charred Noir')" class="variant-btn border-4 border-brand-dark p-3 bg-brand-cream text-brand-dark text-center violent-hover">
+                  Charred Noir
+                </button>
+                <button type="button" onclick="selectVariant(this, 'Oxidized Rust')" class="variant-btn border-4 border-brand-dark p-3 bg-brand-cream text-brand-dark text-center violent-hover">
+                  Oxidized Rust
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Area (Price, Stepper, Add Button) -->
+          <div class="border-t-8 border-brand-dark pt-8">
+            <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between mb-8">
+              <span id="product-price" class="font-display text-7xl text-brand-red glitch-hover leading-none">$140</span>
+              
+              <!-- Quantity Stepper -->
+              <div class="flex items-center border-4 border-brand-dark bg-brand-cream h-16 w-48 shadow-brutal-red">
+                <button onclick="changeQty(-1)" class="w-16 h-full flex items-center justify-center font-display text-3xl hover:bg-brand-red hover:text-brand-cream transition-colors">-</button>
+                <span id="qty-val" class="flex-1 text-center font-display text-3xl">1</span>
+                <button onclick="changeQty(1)" class="w-16 h-full flex items-center justify-center font-display text-3xl hover:bg-brand-red hover:text-brand-cream transition-colors">+</button>
+              </div>
+            </div>
+
+            <button onclick="handleAddToCart()" class="w-full bg-brand-dark text-brand-cream font-display text-5xl uppercase py-6 border-8 border-brand-dark cascading-shadow hover:bg-brand-red hover:border-brand-red transition-all cursor-crosshair violent-hover">
+              Claim Object ⚡
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Related Products -->
+    <section class="py-24 px-6 relative z-10 border-t-8 border-brand-dark mt-16 bg-brand-dark/20">
+      <div class="max-w-[1440px] mx-auto stagger-4">
+        <h2 class="font-display text-7xl uppercase text-brand-cream mb-16 stroke-text-dark glitch-hover">
+          Parallel Artifacts
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          
+          <a href="product.html?id=steel-chair" class="block relative group">
+            <div class="absolute inset-0 bg-brand-purple translate-x-4 translate-y-4 border-8 border-brand-dark"></div>
+            <div class="relative bg-brand-cream border-8 border-brand-dark aspect-[3/4] overflow-hidden cascading-shadow">
+              <img src="assets/steel-chair.jpg" alt="Steel Chair" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+              <div class="absolute bottom-0 left-0 w-full bg-brand-red border-t-8 border-brand-dark p-4 flex justify-between items-end translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <h3 class="font-display text-3xl uppercase text-brand-cream glitch-hover">Steel Chair</h3>
+                <span class="font-display text-3xl text-brand-dark">$890</span>
+              </div>
+            </div>
+          </a>
+          
+          <a href="product.html?id=abstract-light" class="block relative group mt-8 md:mt-0">
+            <div class="absolute inset-0 bg-brand-cream translate-x-4 translate-y-4 border-8 border-brand-dark"></div>
+            <div class="relative bg-brand-dark border-8 border-brand-cream aspect-[3/4] overflow-hidden cascading-shadow">
+              <img src="assets/abstract-light.jpg" alt="Abstract Light" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 mix-blend-luminosity opacity-80">
+              <div class="absolute bottom-0 left-0 w-full bg-brand-cream border-t-8 border-brand-dark p-4 flex justify-between items-end translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <h3 class="font-display text-3xl uppercase text-brand-dark glitch-hover">Abstract Light</h3>
+                <span class="font-display text-3xl text-brand-red">$320</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="product.html?id=velvet-lounge" class="block relative group mt-8 md:mt-0">
+            <div class="absolute inset-0 bg-brand-red translate-x-4 translate-y-4 border-8 border-brand-dark"></div>
+            <div class="relative bg-brand-cream border-8 border-brand-dark aspect-[3/4] overflow-hidden cascading-shadow">
+              <img src="assets/velvet-lounge.jpg" alt="Velvet Lounge" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 breathe-img">
+              <div class="absolute bottom-0 left-0 w-full bg-brand-dark border-t-8 border-brand-cream p-4 flex justify-between items-end translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <h3 class="font-display text-3xl uppercase text-brand-cream glitch-hover">Velvet Lounge</h3>
+                <span class="font-display text-3xl text-brand-cream">$1,200</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-container bg-brand-dark border-y-8 border-brand-cream py-6">
+      <div class="marquee-content font-display text-6xl uppercase text-brand-cream flex gap-16 items-center">
+        <span>Raw Materials</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red text-6xl animate-spin"></iconify-icon>
+        <span>No Apologies</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red text-6xl animate-spin"></iconify-icon>
+        <span>Permanent Structures</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red text-6xl animate-spin"></iconify-icon>
+        <span>Zero Restocks</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red text-6xl animate-spin"></iconify-icon>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-brand-dark text-brand-cream border-t-8 border-brand-cream px-6 py-24 relative z-10 text-center">
+    <div class="max-w-[1440px] mx-auto">
+      <a href="index.html" class="inline-block group transition-transform duration-300 hover:scale-105">
+        <h2 class="font-display text-[15vw] leading-none uppercase stroke-text">EPOC</h2>
+      </a>
+      <p class="font-display text-3xl uppercase tracking-[0.5em] mt-8 text-brand-red">End of an era.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Product Page State Management
+    let currentQty = 1;
+    let selectedVariant = 'Concrete Ash';
+    let currentProductId = 'brutalist-vase';
+
+    function initProductPage() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id') || 'brutalist-vase';
+      currentProductId = EPOC_PRODUCTS[id] ? id : 'brutalist-vase';
+      const prod = EPOC_PRODUCTS[currentProductId];
+
+      document.getElementById('breadcrumb-title').textContent = prod.title;
+      document.getElementById('product-title').textContent = prod.title;
+      document.getElementById('product-desc').textContent = prod.description;
+      document.getElementById('product-price').textContent = `$${prod.price}`;
+      document.getElementById('product-category').textContent = prod.category;
+      document.getElementById('main-product-img').src = prod.image;
+      document.getElementById('thumb-1').src = prod.image;
+      document.getElementById('product-serial').textContent = `#EP-${Math.floor(100 + Math.random() * 900)}-RAW`;
+
+      if (prod.specs) {
+        document.getElementById('spec-mat').textContent = prod.specs.Material || 'Concrete';
+        document.getElementById('spec-wt').textContent = prod.specs.Weight || '10 kg';
+        document.getElementById('spec-dim').textContent = prod.specs.Dimensions || 'Standard';
+        document.getElementById('spec-orig').textContent = prod.specs.Origin || 'Berlin';
+      }
+    }
+
+    function changeQty(delta) {
+      currentQty = Math.max(1, currentQty + delta);
+      document.getElementById('qty-val').textContent = currentQty;
+      playSound('click');
+    }
+
+    function selectVariant(btn, variantName) {
+      document.querySelectorAll('.variant-btn').forEach(b => {
+        b.classList.remove('bg-brand-dark', 'text-brand-cream');
+        b.classList.add('bg-brand-cream', 'text-brand-dark');
+      });
+      btn.classList.remove('bg-brand-cream', 'text-brand-dark');
+      btn.classList.add('bg-brand-dark', 'text-brand-cream');
+      selectedVariant = variantName;
+      playSound('click');
+    }
+
+    function switchImage(thumbCard) {
+      const img = thumbCard.querySelector('img');
+      if (img) {
+        document.getElementById('main-product-img').src = img.src;
+        document.querySelectorAll('.thumb-card').forEach(c => c.classList.remove('ring-4', 'ring-brand-red'));
+        thumbCard.classList.add('ring-4', 'ring-brand-red');
+        playSound('click');
+      }
+    }
+
+    function handleAddToCart() {
+      addToCart(currentProductId, currentQty, selectedVariant);
+    }
+
+    document.addEventListener('DOMContentLoaded', initProductPage);
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+  "params": {
+    "name": "NavigationBar",
+    "rawHtml": "<nav class=\"fixed top-0 w-full z-50 bg-brand-cream border-b-8 border-brand-dark px-6 py-4\" id=\"nav-main\" data-sd-id=\"1\">\n    <div class=\"max-w-[1440px] mx-auto flex items-center justify-between\" data-sd-id=\"2\">\n      <a href=\"#\" id=\"nav-logo\" class=\"block violent-hover\" data-sd-id=\"3\">\n        <img src=\"https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/ae52f364-29ad-4a1c-8745-c4863ce23c5d/1791208709971-1734bdc7/image.png\" alt=\"EPOC\" class=\"h-12 w-auto border-4 border-brand-dark shadow-brutal\" data-sd-id=\"4\">\n      </a>\n      <div class=\"hidden lg:flex gap-12 font-display text-4xl uppercase tracking-widest\" data-sd-id=\"5\">\n        <a href=\"#\" id=\"nav-manifesto\" class=\"glitch-hover hover:underline decoration-8 underline-offset-8 inline-block\" data-sd-id=\"6\">Manifesto</a>\n        <a href=\"#\" id=\"nav-objects\" class=\"glitch-hover hover:underline decoration-8 underline-offset-8 inline-block\" data-sd-id=\"7\">Objects</a>\n        <a href=\"#\" id=\"nav-chaos\" class=\"glitch-hover hover:underline decoration-8 underline-offset-8 inline-block\" data-sd-id=\"8\">Chaos</a>\n      </div>\n      <div class=\"flex gap-6\" data-sd-id=\"9\">\n        <button class=\"w-16 h-16 bg-brand-red border-4 border-brand-dark shadow-brutal flex items-center justify-center violent-hover\" data-sd-id=\"10\">\n          <iconify-icon icon=\"lucide:shopping-cart\" class=\"text-3xl text-brand-cream\"></iconify-icon>\n        </button>\n      </div>\n    </div>\n  </nav>",
+    "description": "Main navigation bar with EPIC logo, menu items, and shopping cart button",
+    "draftId": "f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e"
+  },
+  "result": {
+    "success": true,
+    "component": {
+      "id": "b932ec1c-e2f6-4bad-ac2a-0ef62d44c5e1",
+      "name": "NavigationBar",
+      "htmlContent": "<nav class=\"fixed top-0 w-full z-50 px-6 py-4 border-b-8\" style=\"background-color: #F4E7DA; border-color: #0f0f0f;\">\n  <div class=\"max-w-[1440px] mx-auto flex items-center justify-between\">\n    <a :href=\"homeHref\" class=\"block violent-hover\">\n      <img src=\"https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/uploads/ae52f364-29ad-4a1c-8745-c4863ce23c5d/1791208709971-1734bdc7/image.png\" alt=\"EPOC\" class=\"h-12 w-auto border-4\" style=\"border-color: #0f0f0f; box-shadow: 16px 16px 0px 0px #0f0f0f;\">\n    </a>\n    <div class=\"hidden lg:flex gap-12 text-4xl uppercase tracking-widest\" style=\"font-family: 'Tanker', sans-serif;\">\n      <a :href=\"manifestoHref\" \n         class=\"glitch-hover hover:underline inline-block\" \n         :class=\"{ 'underline': activeItem === 'manifesto' }\"\n         style=\"text-decoration-thickness: 8px; text-underline-offset: 8px;\">\n        Manifesto\n      </a>\n      <a :href=\"objectsHref\" \n         class=\"glitch-hover hover:underline inline-block\" \n         :class=\"{ 'underline': activeItem === 'objects' }\"\n         style=\"text-decoration-thickness: 8px; text-underline-offset: 8px;\">\n        Objects\n      </a>\n      <a :href=\"chaosHref\" \n         class=\"glitch-hover hover:underline inline-block\" \n         :class=\"{ 'underline': activeItem === 'chaos' }\"\n         style=\"text-decoration-thickness: 8px; text-underline-offset: 8px;\">\n        Chaos\n      </a>\n    </div>\n    <div class=\"flex gap-6\">\n      <button @click=\"$emit('cartClick')\" \n              class=\"w-16 h-16 border-4 flex items-center justify-center violent-hover\"\n              style=\"background-color: #DA3C2F; border-color: #0f0f0f; box-shadow: 16px 16px 0px 0px #0f0f0f;\">\n        <iconify-icon icon=\"lucide:shopping-cart\" class=\"text-3xl\" style=\"color: #F4E7DA;\"></iconify-icon>\n      </button>\n    </div>\n  </div>\n</nav>",
+      "props": [
+        {
+          "name": "activeItem",
+          "type": "string",
+          "defaultValue": "manifesto",
+          "description": "Identifier for the currently active navigation link ('manifesto', 'objects', 'chaos')"
+        },
+        {
+          "name": "homeHref",
+          "type": "string",
+          "defaultValue": "#",
+          "description": "Navigation URL for the logo/home link"
+        },
+        {
+          "name": "manifestoHref",
+          "type": "string",
+          "defaultValue": "#manifesto",
+          "description": "Navigation URL for the Manifesto section"
+        },
+        {
+          "name": "objectsHref",
+          "type": "string",
+          "defaultValue": "#objects",
+          "description": "Navigation URL for the Objects section"
+        },
+        {
+          "name": "chaosHref",
+          "type": "string",
+          "defaultValue": "#chaos",
+          "description": "Navigation URL for the Chaos section"
+        }
+      ],
+      "version": 1
+    },
+    "message": "Successfully created component \"NavigationBar\" with 5 props"
+  }
+}

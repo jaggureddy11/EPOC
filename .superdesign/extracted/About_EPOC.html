@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About EPOC - Anti Aesthetic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&amp;f[]=satoshi@700,900&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DA3C2F',
+              cream: '#F4E7DA',
+              dark: '#0f0f0f',
+              purple: '#3a0c2e'
+            }
+          },
+          fontFamily: {
+            display: ['Tanker', 'sans-serif'],
+            body: ['Satoshi', 'sans-serif'],
+          },
+          boxShadow: {
+            'brutal': '16px 16px 0px 0px #0f0f0f',
+            'brutal-cream': '12px 12px 0px 0px #F4E7DA',
+            'brutal-red': '12px 12px 0px 0px #DA3C2F',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #DA3C2F;
+      background-image: radial-gradient(#F4E7DA 2px, transparent 2px);
+      background-size: 40px 40px;
+    }
+    .stroke-text {
+      -webkit-text-stroke: 2px #F4E7DA;
+      color: transparent;
+    }
+    .stroke-text-dark {
+      -webkit-text-stroke: 2px #0f0f0f;
+      color: transparent;
+    }
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+    .marquee-content {
+      display: inline-flex;
+      animation: marquee 10s linear infinite;
+    }
+    .marquee-content span {
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .marquee-content span:hover {
+      transform: scale(1.3) rotate(3deg);
+      color: #0f0f0f;
+      -webkit-text-stroke: 1px #F4E7DA;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes pulse-breathe {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.75; }
+    }
+    .breathe-img {
+      animation: pulse-breathe 3s ease-in-out infinite;
+    }
+    @keyframes fade-in-up-scale {
+      0% { opacity: 0; transform: translateY(80px) scale(0.9); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .stagger-1 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s both; }
+    .stagger-2 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s both; }
+    .stagger-3 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s both; }
+    .stagger-4 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s both; }
+    
+    .glitch-hover:hover {
+      animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+      text-shadow: 4px 4px #DA3C2F, -4px -4px #0f0f0f;
+      color: #F4E7DA;
+    }
+    @keyframes glitch-skew {
+      0% { transform: skew(0deg); }
+      20% { transform: skew(-15deg); }
+      40% { transform: skew(15deg); }
+      60% { transform: skew(-5deg); }
+      80% { transform: skew(5deg); }
+      100% { transform: skew(0deg); }
+    }
+    
+    .violent-hover {
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .violent-hover:hover {
+      transform: scale(1.08) translate(-6px, -6px) rotate(2deg) !important;
+      box-shadow: 24px 24px 0px 0px #0f0f0f !important;
+      z-index: 20;
+    }
+    
+    .cascading-shadow {
+      box-shadow: 8px 8px 0px 0px #F4E7DA, 16px 16px 0px 0px #0f0f0f, 24px 24px 0px 0px #DA3C2F, 32px 32px 0px 0px #3a0c2e;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .cascading-shadow:hover {
+      transform: scale(1.05) translate(-12px, -12px);
+      box-shadow: 16px 16px 0px 0px #F4E7DA, 32px 32px 0px 0px #0f0f0f, 48px 48px 0px 0px #DA3C2F, 64px 64px 0px 0px #3a0c2e;
+      z-index: 30;
+    }
+    
+    @keyframes dash {
+      from { stroke-dashoffset: 40; }
+      to { stroke-dashoffset: 0; }
+    }
+    .dash-line {
+      stroke-dasharray: 20, 20;
+      animation: dash 1s linear infinite;
+    }
+  </style>
+</head>
+<body class="text-brand-dark font-body antialiased selection:bg-brand-dark selection:text-brand-cream overflow-x-hidden">
+
+  <sd-component 
+    componentId="b932ec1c-e2f6-4bad-ac2a-0ef62d44c5e1" 
+    name="NavigationBar" 
+    props='{"activeItem":"manifesto","homeHref":"https://draft-f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e.preview.superdesign.dev","manifestoHref":"https://draft-4da27ffc-9ebe-49b8-9b06-da3e9f617dc5.preview.superdesign.dev","objectsHref":"https://draft-f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e.preview.superdesign.dev#objects","chaosHref":"https://draft-f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e.preview.superdesign.dev#chaos"}'>
+  </sd-component>
+
+  <main class="pt-32 relative">
+    <div class="absolute left-1/2 top-0 w-0 h-full z-0 pointer-events-none hidden lg:block overflow-visible">
+      <svg width="200" height="3500" class="absolute top-0 left-1/2 -translate-x-1/2 opacity-20">
+        <path d="M 100 0 L 100 800 L -50 1200 L 250 1800 L 100 2200 L 100 3500" stroke="#0f0f0f" stroke-width="16" fill="none" class="dash-line"/>
+      </svg>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-h-[80vh] px-6 py-12 flex flex-col justify-center relative overflow-hidden">
+      <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-purple mix-blend-multiply opacity-50 blur-3xl"></div>
+      <div class="max-w-[1440px] mx-auto w-full relative z-10 text-center">
+        <h1 class="font-display text-[15vw] leading-[0.8] uppercase font-black text-brand-cream mix-blend-difference stagger-1 mb-6">
+          <span class="block glitch-hover cursor-crosshair">THE</span>
+          <span class="block stroke-text glitch-hover cursor-crosshair">MANIFESTO</span>
+        </h1>
+        <p class="text-2xl font-black uppercase text-brand-dark bg-brand-cream inline-block px-8 py-4 border-8 border-brand-dark shadow-brutal transform rotate-2 stagger-2">
+          Rejecting the sterile modern aesthetic since 2024.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission Statement -->
+    <section class="py-24 px-6 relative z-10 bg-brand-dark">
+      <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="stagger-2">
+          <h2 class="font-display text-7xl uppercase text-brand-cream mb-8 glitch-hover leading-none">
+            We Build For<br>
+            <span class="text-brand-red">The Chaos.</span>
+          </h2>
+          <div class="space-y-6 text-xl text-brand-cream/80 font-bold uppercase">
+            <p class="border-l-8 border-brand-red pl-6 py-2">We are sick of minimalist beige boxes. We are tired of "clean" design that means absolutely nothing.</p>
+            <p class="border-l-8 border-brand-purple pl-6 py-2">EPOC exists to inject raw, unfiltered energy back into the objects we surround ourselves with.</p>
+          </div>
+        </div>
+        <div class="relative h-[600px] border-8 border-brand-cream shadow-brutal-cream violent-hover overflow-hidden stagger-3">
+          <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Chaotic Design" class="w-full h-full object-cover grayscale contrast-150 mix-blend-luminosity breathe-img">
+          <div class="absolute inset-0 bg-brand-red mix-blend-multiply opacity-50"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values Marquee -->
+    <div class="marquee-container bg-brand-cream border-y-8 border-brand-dark py-8 stagger-4">
+      <div class="marquee-content font-display text-8xl uppercase text-brand-dark flex gap-16 items-center">
+        <span class="cursor-crosshair stroke-text-dark text-transparent">Zero Compromise</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red animate-pulse"></iconify-icon>
+        <span class="cursor-crosshair">Total Impact</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red animate-pulse"></iconify-icon>
+        <span class="cursor-crosshair stroke-text-dark text-transparent">Raw Materials</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red animate-pulse"></iconify-icon>
+        <span class="cursor-crosshair">Loud Design</span>
+        <iconify-icon icon="ph:asterisk-bold" class="text-brand-red animate-pulse"></iconify-icon>
+      </div>
+    </div>
+
+    <!-- Timeline/Philosophy -->
+    <section class="py-32 px-6 relative z-10">
+      <div class="max-w-[1440px] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div class="bg-brand-cream border-8 border-brand-dark p-8 cascading-shadow transform -rotate-1 stagger-1">
+            <h3 class="font-display text-6xl uppercase mb-6 text-brand-dark">01. Form</h3>
+            <p class="font-black uppercase text-xl border-t-4 border-brand-dark pt-4">
+              Function follows feeling. If an object doesn't provoke an immediate visceral reaction, it doesn't belong here.
+            </p>
+          </div>
+          
+          <div class="bg-brand-dark border-8 border-brand-red p-8 cascading-shadow transform rotate-2 mt-12 md:mt-24 stagger-2">
+            <h3 class="font-display text-6xl uppercase mb-6 text-brand-red">02. Force</h3>
+            <p class="font-black uppercase text-xl text-brand-cream border-t-4 border-brand-red pt-4">
+              Design should hit you like a concrete block. We do not whisper. We scream.
+            </p>
+          </div>
+
+          <div class="bg-brand-red border-8 border-brand-dark p-8 cascading-shadow transform -rotate-3 mt-24 md:mt-48 stagger-3">
+            <h3 class="font-display text-6xl uppercase mb-6 text-brand-dark">03. Future</h3>
+            <p class="font-black uppercase text-xl border-t-4 border-brand-dark pt-4">
+              Building artifacts that will survive the impending cultural collapse. Heavy, permanent, undeniable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-32 px-6 bg-brand-dark border-y-8 border-brand-cream relative z-10 overflow-hidden">
+      <div class="absolute inset-0 opacity-20">
+         <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="texture">
+      </div>
+      <div class="max-w-4xl mx-auto text-center relative z-20 stagger-2">
+        <h2 class="font-display text-8xl md:text-[10rem] uppercase text-brand-cream leading-none mb-12 glitch-hover">
+          Join The<br>
+          <span class="stroke-text">Disruption</span>
+        </h2>
+        <a href="https://draft-f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e.preview.superdesign.dev" id="nav-shop-cta" class="inline-block bg-brand-red text-brand-cream font-display text-5xl uppercase px-16 py-8 border-8 border-brand-cream shadow-brutal-cream violent-hover">
+          Shop Objects
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <sd-component 
+    componentId="35b4f6d9-4c58-4b35-b045-0ff99f4518d3" 
+    name="BrutalFooter" 
+    props='{"logoHref":"https://draft-f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e.preview.superdesign.dev","showTagline":true}'>
+  </sd-component>
+
+</body>
+</html>

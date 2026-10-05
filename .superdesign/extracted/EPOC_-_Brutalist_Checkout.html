@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPOC - Checkout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&amp;f[]=satoshi@700,900&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DA3C2F',
+              cream: '#F4E7DA',
+              dark: '#0f0f0f',
+              purple: '#3a0c2e'
+            }
+          },
+          fontFamily: {
+            display: ['Tanker', 'sans-serif'],
+            body: ['Satoshi', 'sans-serif'],
+          },
+          boxShadow: {
+            'brutal': '16px 16px 0px 0px #0f0f0f',
+            'brutal-cream': '12px 12px 0px 0px #F4E7DA',
+            'brutal-red': '12px 12px 0px 0px #DA3C2F',
+            'cascading': '8px 8px 0px 0px #F4E7DA, 16px 16px 0px 0px #0f0f0f, 24px 24px 0px 0px #DA3C2F',
+            'input': '4px 4px 0px 0px #0f0f0f',
+            'input-focus': '8px 8px 0px 0px #0f0f0f'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #DA3C2F;
+      background-image: radial-gradient(#F4E7DA 2px, transparent 2px);
+      background-size: 40px 40px;
+    }
+    .stroke-text {
+      -webkit-text-stroke: 2px #F4E7DA;
+      color: transparent;
+    }
+    .stroke-text-dark {
+      -webkit-text-stroke: 2px #0f0f0f;
+      color: transparent;
+    }
+    @keyframes fade-in-up-scale {
+      0% { opacity: 0; transform: translateY(80px) scale(0.9); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .stagger-1 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s both; }
+    .stagger-2 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s both; }
+    .stagger-3 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s both; }
+    .stagger-4 { animation: fade-in-up-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s both; }
+    
+    .glitch-hover:hover {
+      animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+      text-shadow: 4px 4px #DA3C2F, -4px -4px #0f0f0f;
+      color: #F4E7DA;
+    }
+    @keyframes glitch-skew {
+      0% { transform: skew(0deg); }
+      20% { transform: skew(-15deg); }
+      40% { transform: skew(15deg); }
+      60% { transform: skew(-5deg); }
+      80% { transform: skew(5deg); }
+      100% { transform: skew(0deg); }
+    }
+    
+    .violent-hover {
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .violent-hover:hover {
+      transform: scale(1.03) translate(-4px, -4px) rotate(1deg) !important;
+      box-shadow: 16px 16px 0px 0px #0f0f0f !important;
+      z-index: 20;
+    }
+    
+    .brutal-input {
+      border: 4px solid #0f0f0f;
+      background-color: #F4E7DA;
+      padding: 1rem;
+      font-family: 'Satoshi', sans-serif;
+      font-weight: 700;
+      color: #0f0f0f;
+      width: 100%;
+      transition: all 0.2s ease;
+      box-shadow: 4px 4px 0px 0px #0f0f0f;
+      outline: none;
+    }
+    .brutal-input:focus {
+      transform: translate(-4px, -4px);
+      box-shadow: 8px 8px 0px 0px #DA3C2F;
+      background-color: #fff;
+    }
+    .brutal-input::placeholder {
+      color: rgba(15, 15, 15, 0.5);
+    }
+    
+    .cascading-shadow {
+      box-shadow: 8px 8px 0px 0px #F4E7DA, 16px 16px 0px 0px #0f0f0f, 24px 24px 0px 0px #DA3C2F, 32px 32px 0px 0px #3a0c2e;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .cascading-shadow:hover {
+      transform: scale(1.02) translate(-8px, -8px);
+      box-shadow: 16px 16px 0px 0px #F4E7DA, 32px 32px 0px 0px #0f0f0f, 48px 48px 0px 0px #DA3C2F, 64px 64px 0px 0px #3a0c2e;
+      z-index: 30;
+    }
+  </style>
+</head>
+<body class="text-brand-dark font-body antialiased selection:bg-brand-dark selection:text-brand-cream overflow-x-hidden">
+
+  <sd-component componentId="b932ec1c-e2f6-4bad-ac2a-0ef62d44c5e1" name="NavigationBar" props='{"activeItem":"","homeHref":"https://draft-f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e.preview.superdesign.dev","manifestoHref":"https://draft-f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e.preview.superdesign.dev#manifesto","objectsHref":"https://draft-f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e.preview.superdesign.dev#objects","chaosHref":"https://draft-f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e.preview.superdesign.dev#chaos"}'></sd-component>
+
+  <main class="pt-32 pb-24 relative min-h-screen">
+    <div class="max-w-[1440px] mx-auto px-6">
+      
+      <div class="mb-12 stagger-1">
+        <h1 class="font-display text-8xl md:text-[8vw] leading-[0.8] uppercase font-black text-brand-dark stroke-text-dark glitch-hover cursor-crosshair inline-block">
+          Finalize
+        </h1>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+        
+        <!-- Checkout Form -->
+        <div class="lg:col-span-2 space-y-12">
+          
+          <!-- Contact Information -->
+          <section class="bg-brand-cream border-8 border-brand-dark p-8 shadow-brutal transform -rotate-1 stagger-2">
+            <div class="flex items-center gap-4 mb-8 border-b-4 border-brand-dark pb-4">
+              <iconify-icon icon="ph:user-bold" class="text-4xl text-brand-red"></iconify-icon>
+              <h2 class="font-display text-4xl uppercase glitch-hover">Contact</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="font-display text-xl uppercase tracking-wider block">Email</label>
+                <input type="email" class="brutal-input" placeholder="chaos@epoc.com" id="email-input">
+              </div>
+              <div class="space-y-2">
+                <label class="font-display text-xl uppercase tracking-wider block">Phone</label>
+                <input type="tel" class="brutal-input" placeholder="+1 (555) 000-0000" id="phone-input">
+              </div>
+            </div>
+          </section>
+
+          <!-- Shipping Address -->
+          <section class="bg-brand-dark text-brand-cream border-8 border-brand-cream p-8 shadow-brutal-cream transform rotate-1 stagger-3 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-red mix-blend-multiply opacity-50 blur-3xl rounded-full pointer-events-none"></div>
+            <div class="flex items-center gap-4 mb-8 border-b-4 border-brand-cream pb-4 relative z-10">
+              <iconify-icon icon="ph:map-pin-bold" class="text-4xl text-brand-red"></iconify-icon>
+              <h2 class="font-display text-4xl uppercase glitch-hover">Shipping</h2>
+            </div>
+            <div class="space-y-6 relative z-10">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">First Name</label>
+                  <input type="text" class="brutal-input" placeholder="First" id="first-name-input">
+                </div>
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">Last Name</label>
+                  <input type="text" class="brutal-input" placeholder="Last" id="last-name-input">
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="font-display text-xl uppercase tracking-wider block">Address</label>
+                <input type="text" class="brutal-input" placeholder="123 Raw St" id="address-input">
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">City</label>
+                  <input type="text" class="brutal-input" placeholder="City" id="city-input">
+                </div>
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">State</label>
+                  <input type="text" class="brutal-input" placeholder="State" id="state-input">
+                </div>
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">ZIP</label>
+                  <input type="text" class="brutal-input" placeholder="ZIP" id="zip-input">
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="font-display text-xl uppercase tracking-wider block">Country</label>
+                <select class="brutal-input appearance-none rounded-none cursor-pointer" id="country-select">
+                  <option value="us">United States</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="ca">Canada</option>
+                  <option value="jp">Japan</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <!-- Payment -->
+          <section class="bg-brand-red text-brand-dark border-8 border-brand-dark p-8 shadow-brutal transform -rotate-1 stagger-4">
+            <div class="flex items-center gap-4 mb-8 border-b-4 border-brand-dark pb-4">
+              <iconify-icon icon="ph:credit-card-bold" class="text-4xl text-brand-cream"></iconify-icon>
+              <h2 class="font-display text-4xl uppercase glitch-hover">Payment</h2>
+            </div>
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <label class="font-display text-xl uppercase tracking-wider block">Card Number</label>
+                <div class="relative">
+                  <input type="text" class="brutal-input pl-12" placeholder="0000 0000 0000 0000" id="card-number-input">
+                  <iconify-icon icon="ph:credit-card" class="absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-brand-dark"></iconify-icon>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">Expiry (MM/YY)</label>
+                  <input type="text" class="brutal-input" placeholder="MM/YY" id="card-expiry-input">
+                </div>
+                <div class="space-y-2">
+                  <label class="font-display text-xl uppercase tracking-wider block">CVC</label>
+                  <input type="text" class="brutal-input" placeholder="CVC" id="card-cvc-input">
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Order Summary Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-32 space-y-8">
+            
+            <div class="bg-brand-cream border-8 border-brand-dark p-6 cascading-shadow stagger-2">
+              <h2 class="font-display text-3xl uppercase mb-6 border-b-4 border-brand-dark pb-2">Summary</h2>
+              
+              <div class="space-y-6 mb-8">
+                <!-- Cart Item 1 -->
+                <div class="flex gap-4">
+                  <div class="w-24 h-24 border-4 border-brand-dark bg-brand-dark overflow-hidden shrink-0">
+                    <img src="https://images.unsplash.com/photo-1507149833265-60c372daea22?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Steel Chair" class="w-full h-full object-cover grayscale">
+                  </div>
+                  <div class="flex flex-col justify-between py-1">
+                    <div>
+                      <h3 class="font-display text-xl uppercase leading-tight">Steel Chair</h3>
+                      <p class="text-sm font-bold uppercase opacity-70">Qty: 1</p>
+                    </div>
+                    <span class="font-display text-2xl">$890</span>
+                  </div>
+                </div>
+                
+                <!-- Cart Item 2 -->
+                <div class="flex gap-4">
+                  <div class="w-24 h-24 border-4 border-brand-dark bg-brand-red overflow-hidden shrink-0">
+                    <img src="https://images.unsplash.com/photo-1579562768051-40915654cc3c?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Brutalist Vase" class="w-full h-full object-cover grayscale mix-blend-multiply">
+                  </div>
+                  <div class="flex flex-col justify-between py-1">
+                    <div>
+                      <h3 class="font-display text-xl uppercase leading-tight">Brutalist Vase</h3>
+                      <p class="text-sm font-bold uppercase opacity-70">Qty: 1</p>
+                    </div>
+                    <span class="font-display text-2xl">$140</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-4 border-t-4 border-brand-dark pt-6 mb-8">
+                <div class="flex justify-between font-bold uppercase">
+                  <span>Subtotal</span>
+                  <span>$1,030</span>
+                </div>
+                <div class="flex justify-between font-bold uppercase">
+                  <span>Shipping</span>
+                  <span>Calculated at next step</span>
+                </div>
+                <div class="flex justify-between font-display text-4xl pt-4 border-t-4 border-brand-dark">
+                  <span>Total</span>
+                  <span>$1,030</span>
+                </div>
+              </div>
+
+              <a href="https://draft-b1a51883-230a-46ef-a789-9ef0eca37c4f.preview.superdesign.dev" id="place-order-btn" class="block w-full bg-brand-dark text-brand-cream border-4 border-brand-dark text-center py-6 font-display text-3xl uppercase tracking-widest violent-hover">
+                Place Order
+              </a>
+              
+              <div class="mt-4 flex items-center justify-center gap-2 text-brand-dark font-bold text-sm uppercase">
+                <iconify-icon icon="ph:lock-key-bold"></iconify-icon>
+                <span>Secure Checkout</span>
+              </div>
+            </div>
+
+            <a href="https://draft-5f06b2a8-749d-4459-bda3-9a28ab2e5c08.preview.superdesign.dev" id="return-cart-link" class="block text-center font-display text-2xl uppercase text-brand-dark stroke-text-dark glitch-hover hover:underline decoration-4 underline-offset-4 stagger-4">
+              Return to Cart
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <sd-component componentId="35b4f6d9-4c58-4b35-b045-0ff99f4518d3" name="BrutalFooter" props='{"logoHref":"https://draft-f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e.preview.superdesign.dev"}'></sd-component>
+
+</body>
+</html>

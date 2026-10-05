@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "/": {
+      "targetKind": "new-target",
+      "projectId": "e44d1f85-9e21-4bb0-9bea-d026ca5d621f",
+      "activeDraftId": "f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e",
+      "designSystemPath": ".superdesign/design-system.md",
+      "contextFiles": [
+        ".superdesign/design-system.md"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "c99ff6fe2d1ceac5f1627bb51cad441216ac620a10dae96f020375c02e3b5b17"
+      },
+      "components": [
+        {
+          "name": "NavigationBar",
+          "id": "b932ec1c-e2f6-4bad-ac2a-0ef62d44c5e1"
+        },
+        {
+          "name": "BrutalFooter",
+          "id": "35b4f6d9-4c58-4b35-b045-0ff99f4518d3"
+        }
+      ],
+      "drafts": {
+        "f48bc9d5-aa49-4c78-ae98-0a5f35e16b2e": {
+          "title": "EPOC - Brutalist Gen-Z Store",
+          "visualDirection": "Brutalist Gen-Z Premium",
+          "currentVersion": 2
+        },
+        "163ff440-ee1b-498d-bd86-d9dd893fe27b": {
+          "title": "EPOC - Brutalist Product Details",
+          "visualDirection": "Brutalist Gen-Z Premium"
+        },
+        "5f06b2a8-749d-4459-bda3-9a28ab2e5c08": {
+          "title": "EPOC - Shopping Cart",
+          "visualDirection": "Brutalist Gen-Z Premium"
+        },
+        "b059dc5e-a176-41fa-9272-191b35e62a36": {
+          "title": "EPOC - Brutalist Checkout",
+          "visualDirection": "Brutalist Gen-Z Premium"
+        },
+        "b1a51883-230a-46ef-a789-9ef0eca37c4f": {
+          "title": "Order Secured",
+          "visualDirection": "Brutalist Gen-Z Premium"
+        },
+        "4da27ffc-9ebe-49b8-9b06-da3e9f617dc5": {
+          "title": "About EPOC",
+          "visualDirection": "Brutalist Gen-Z Premium"
+        }
+      },
+      "updatedAt": "2026-10-05T14:48:04.329Z"
+    }
+  }
+}
